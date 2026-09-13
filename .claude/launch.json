@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-dev",
+      "runtimeExecutable": "/usr/bin/env",
+      "runtimeArgs": [
+        "PATH=/Users/ldg/.nvm/versions/node/v24.21.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+        "/Users/ldg/.nvm/versions/node/v24.21.0/bin/node",
+        "/Users/ldg/Desktop/Portfolio/node_modules/next/dist/bin/next",
+        "dev",
+        "--webpack",
+        "-p",
+        "3100"
+      ],
+      "port": 3100
+    }
+  ]
+}

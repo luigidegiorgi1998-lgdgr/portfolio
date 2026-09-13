@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #faf9fc;
+  --ink: #17141d;
+  --muted: #4d485a;
+  --accent: #6d28d9;
+  --card-dark: #17141d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-card-dark: var(--card-dark);
+
+  --font-display: var(--font-anton);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* View Transitions — shared element titles (Home ⇄ My Work) */
+::view-transition-group(*) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Page-entry micro-motion */
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-eyebrow {
+  animation: enter-up 0.3s ease-out both;
+}
+
+.page-title {
+  animation: enter-up 0.3s ease-out 0.08s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-eyebrow,
+  .page-title {
+    animation: none;
+  }
+}
