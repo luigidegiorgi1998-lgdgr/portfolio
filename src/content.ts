@@ -30,13 +30,17 @@ export type Project = {
   outcome: string;
   highlights?: string[];
   imageNote?: string;
+  kind: "client" | "concept";
+  /** Hidden from the site until its images are in place. */
+  draft?: boolean;
   images: { src: string; alt: string }[];
   liveUrl?: string;
 };
 
-export const PROJECTS: Project[] = [
+const ALL_PROJECTS: Project[] = [
   {
     id: "mylocalguide",
+    kind: "concept",
     title: "MyLocalGuide",
     type: "Travel app",
     year: "2025",
@@ -63,6 +67,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "nolimits",
+    kind: "client",
     title: "NoLimits",
     type: "Coaching app",
     year: "2025",
@@ -93,6 +98,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "fenwick",
+    kind: "concept",
     title: "Fenwick",
     type: "B2B dashboard",
     year: "2026",
@@ -118,7 +124,45 @@ export const PROJECTS: Project[] = [
     ],
     liveUrl: "https://fenwick-expense-tool-ldg.vercel.app",
   },
+  {
+    id: "mira",
+    kind: "client",
+    draft: true,
+    title: "MIRA",
+    type: "E-commerce",
+    year: "2026",
+    role: "Lead UX/UI designer (sole designer)",
+    thumb: "/images/mywork/mira-hero.png",
+    tags: ["E-commerce", "Design system", "Web + mobile", "Developer handoff"],
+    summary:
+      "I took an independent Italian clothing brand from an Instagram profile to a complete, developer-ready e-commerce design: brand analysis, design system, 8 page types for web and mobile, and a purchase flow built for Shopify.",
+    problem:
+      "MIRA sells small drops of tailored clothing. The founders had a strong identity on Instagram and nothing else: no site, no domain, no product data. The store had to sell the clothes and tell the story of the project, and launch in step with their releases.",
+    highlights: [
+      "Minimal product cards over editorial ones: two directions designed, the client chose the quiet grid that lets the photography lead.",
+      "Fixed a contrast failure (about 2.1:1 on light photos) with blur and a text halo, keeping the look the client approved.",
+      "Five concepts to build anticipation before the next drop; the client picked a countdown with an email waitlist.",
+      "Mobile behaviour agreed page by page: full-screen menu, header that turns solid on scroll, bottom sheets, sticky add-to-cart bar.",
+      "Compared 7 platforms and recommended Shopify Basic, with a checkout that follows its native structure.",
+    ],
+    outcome:
+      "A complete clickable prototype of the whole purchase flow on web and mobile, and a developer handoff spec revised four times. Structure, card direction, lookbook, product page and checkout were approved by the client on 29 September. The site is not live yet, so there are no launch metrics.",
+    imageNote:
+      "The client is Italian, so the interface is in Italian. A language selector (IT / EN) is part of the header.",
+    images: [
+      { src: "/images/mywork/mira-hero.png", alt: "Home page on web and mobile: brand signature and full-bleed photography" },
+      { src: "/images/mywork/mira-system.png", alt: "Colour and type tokens feeding ten-plus components with real states" },
+      { src: "/images/mywork/mira-cards.png", alt: "Minimal product card: image only, details on hover or when fully in view on mobile" },
+      { src: "/images/mywork/mira-contrast.png", alt: "Overlay from 95% to 40% and the contrast fix, before and after" },
+      { src: "/images/mywork/mira-next-drop.png", alt: "Five ways to build anticipation; the client chose D, countdown and waitlist" },
+      { src: "/images/mywork/mira-product.png", alt: "Product page and made-to-measure flow with size guide and custom measurements" },
+      { src: "/images/mywork/mira-checkout.png", alt: "Cart, checkout and confirmation, following Shopify's native structure" },
+      { src: "/images/mywork/mira-mobile.png", alt: "Mobile rules: full-screen menu, solid header on scroll, bottom sheets, sticky add-to-cart" },
+    ],
+  },
 ];
+
+export const PROJECTS = ALL_PROJECTS.filter((p) => !p.draft);
 
 // The region map: my journey
 export const ROUTE = [
@@ -169,7 +213,7 @@ export const STATS = [
 export const CARD_FIELDS = [
   { label: "ROLE", value: "Designer" },
   { label: "SINCE", value: "2018" },
-  { label: "PROJECTS", value: "3" },
+  { label: "PROJECTS", value: String(PROJECTS.length) },
 ];
 
 export const BAG_ITEMS = [

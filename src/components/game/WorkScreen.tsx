@@ -45,7 +45,7 @@ export default function WorkScreen({ onBack }: { onBack: () => void }) {
               initial={{ x: i === 0 ? -60 : 60, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.1 * i, type: "spring", stiffness: 160, damping: 18 }}
-              className={`flex items-center gap-[2cqw] rounded-[1.5cqw] border-[0.6cqw] p-[1.6cqw] text-left ${i === 0 ? "@lg:row-span-2" : ""} ${active ? "border-[#ffd23f] bg-[#2d4a8a]" : "border-[#5a6a9a] bg-[#2a3552]"}`}
+              className={`flex items-center gap-[2cqw] rounded-[1.5cqw] border-[0.6cqw] p-[1.6cqw] text-left ${i === 0 && PROJECTS.length === 3 ? "@lg:row-span-2" : ""} ${active ? "border-[#ffd23f] bg-[#2d4a8a]" : "border-[#5a6a9a] bg-[#2a3552]"}`}
               style={{ fontSize: "clamp(8px, 1.8cqw, 18px)" }}
             >
               <div className="relative aspect-[4/3] h-full max-h-[26cqw] min-h-[44px] shrink-0 overflow-hidden rounded-[1cqw] border-[0.5cqw] border-[#f4f2f8] bg-[#14182a] @lg:max-h-none @lg:h-auto @lg:w-[40%]">
@@ -56,9 +56,10 @@ export default function WorkScreen({ onBack }: { onBack: () => void }) {
                 <p className="truncate leading-[1.6]">{p.title}</p>
                 <p className="leading-[1.6] text-[#ffd23f]">Lv.{p.year}</p>
                 <div className="my-[0.8cqw] h-[1.6cqw] min-h-[6px] w-full rounded-full border-[0.4cqw] border-[#14182a] bg-[#14182a]">
-                  <motion.div className="h-full rounded-full bg-[#43d36a]" initial={{ width: 0 }} animate={{ width: `${[100, 80, 95][i]}%` }} transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }} />
+                  <motion.div className="h-full rounded-full bg-[#43d36a]" initial={{ width: 0 }} animate={{ width: `${[100, 80, 95, 90][i]}%` }} transition={{ delay: 0.4 + i * 0.1, duration: 0.6 }} />
                 </div>
                 <p className="leading-[1.6] text-[#c9d4f5]">{p.type}</p>
+                <KindChip kind={p.kind} />
               </div>
             </motion.button>
           );
@@ -120,7 +121,8 @@ function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; s
       <div className="flex items-center gap-3 border-b-4 border-[#2d4a8a] bg-[#2d4a8a] px-4 py-2 font-pixel text-[#f4f2f8]" style={{ fontSize: "clamp(9px, 2.6cqw, 22px)" }}>
         <PokeballIcon size={18} />
         <span className="truncate">{p.title}</span>
-        <span className="ml-auto text-[#ffd23f]">Lv.{p.year}</span>
+        <KindChip kind={p.kind} className="ml-auto" />
+        <span className="text-[#ffd23f]">Lv.{p.year}</span>
       </div>
       <div className="grid flex-1 grid-cols-1 gap-4 overflow-y-auto p-4 @lg:grid-cols-[38%_1fr]">
         <div>
@@ -170,5 +172,15 @@ function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; s
         <button onClick={onClose} className="text-[#c0392b]">B · CLOSE</button>
       </div>
     </>
+  );
+}
+
+function KindChip({ kind, className = "" }: { kind: "client" | "concept"; className?: string }) {
+  return (
+    <span
+      className={`inline-block rounded border px-1.5 py-0.5 font-pixel text-[0.7em] ${kind === "client" ? "border-[#43d36a] text-[#43d36a]" : "border-[#c9d4f5] text-[#c9d4f5]"} ${className}`}
+    >
+      {kind === "client" ? "CLIENT PROJECT" : "CONCEPT"}
+    </span>
   );
 }
