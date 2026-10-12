@@ -155,7 +155,8 @@ const ALL_PROJECTS: Project[] = [
       { src: "/images/mywork/mira-contrast.png", alt: "Overlay opacity tests from 88% to 40%, and the final fix: 40% with a background blur and a text halo" },
       { src: "/images/mywork/mira-next-drop.png", alt: "The chosen pre-launch concept: a countdown with an email waitlist, on the home page and above the shop grid" },
       { src: "/images/mywork/mira-product.png", alt: "Made-to-measure product page with a size guide and a custom-measurements form; sold-out sizes are crossed by a slanted line" },
-      // Still to add: cart, checkout and confirmation; mobile rules (menu, solid header, bottom sheet, sticky bar).
+      { src: "/images/mywork/mira-checkout.png", alt: "Purchase flow: cart drawer, checkout following Shopify's native structure, and order confirmation" },
+      // Still to add: mobile rules (menu, solid header, bottom sheet, sticky bar).
     ],
   },
 ];
