@@ -33,7 +33,7 @@ export default function AboutScreen({ onBack }: { onBack: () => void }) {
           <p className="rounded bg-[#2a3a6a] px-2 py-1 text-center text-[#f4f2f8]">TRAINER CARD</p>
           <div className="mt-[1.5cqw] flex gap-[2cqw] @lg:flex-col">
             <div className="relative aspect-[4/5] w-[32%] shrink-0 overflow-hidden rounded-[1cqw] border-[0.6cqw] border-[#2a3a6a] bg-[#cfe0f5] @lg:mx-auto @lg:w-[26%]">
-              <Image src={PROFILE.portrait} alt={`Ritratto di ${PROFILE.name}`} fill sizes="25vw" className="object-cover" priority />
+              <Image src={PROFILE.portrait} alt={`Portrait of ${PROFILE.name}`} fill sizes="25vw" className="object-cover" priority />
             </div>
             <dl className="min-w-0 flex-1 leading-[1.7]">
               <p className="text-[#c0392b]">{PROFILE.name.toUpperCase()}</p>
@@ -46,11 +46,11 @@ export default function AboutScreen({ onBack }: { onBack: () => void }) {
             </dl>
           </div>
           <div className="mt-[1.5cqw]">
-            <p className="mb-[0.6cqw] text-[#c0392b]">STATISTICHE</p>
+            <p className="mb-[0.6cqw] text-[#c0392b]">STATS</p>
             <ul className="space-y-[0.3cqw]">
               {STATS.map((s, i) => (
                 <li key={s.label} className="flex items-center gap-2">
-                  <span className="w-[38%] shrink-0 truncate">{s.label}</span>
+                  <span className="w-[52%] shrink-0 truncate">{s.label}</span>
                   <span className="h-[1.3cqw] min-h-[5px] flex-1 rounded-full bg-[#b8c8e4]">
                     <motion.span className="block h-full rounded-full bg-[#2fb457]" initial={{ width: 0 }} animate={{ width: `${s.value}%` }} transition={{ delay: 0.3 + i * 0.08, duration: 0.7 }} />
                   </span>
@@ -60,11 +60,11 @@ export default function AboutScreen({ onBack }: { onBack: () => void }) {
           </div>
         </motion.section>
 
-        {/* Mappa */}
+        {/* Map */}
         <div className="flex min-h-0 min-w-0 flex-col gap-[2cqw]">
           <motion.section className="flex min-h-0 flex-1 flex-col rounded-[1.5cqw] border-[0.7cqw] border-[#2a3a6a] bg-[#14182a]/90 p-[2cqw]" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
-            <p className="mb-[1cqw] text-[#ffd23f]" style={{ fontSize: "clamp(8px, 1.6cqw, 15px)" }}>REGIONE · IL MIO PERCORSO</p>
-            <svg viewBox="0 0 156 96" className="h-0 min-h-[90px] w-full flex-1 rounded-[1cqw]" preserveAspectRatio="xMidYMid meet" style={{ imageRendering: "pixelated", background: "#5fae5a" }} role="img" aria-label="Mappa del mio percorso: Meccanico, Barista, Product Designer">
+            <p className="mb-[1cqw] text-[#ffd23f]" style={{ fontSize: "clamp(8px, 1.6cqw, 15px)" }}>REGION · MY JOURNEY</p>
+            <svg viewBox="0 0 156 96" className="h-0 min-h-[90px] w-full flex-1 rounded-[1cqw]" preserveAspectRatio="xMidYMid meet" style={{ imageRendering: "pixelated", background: "#5fae5a" }} role="img" aria-label="Map of my journey: Mechanic, Barista, Product Designer">
               <rect width="156" height="96" fill="#5fae5a" />
               <rect y="60" width="70" height="36" fill="#3f87d8" />
               <rect x="100" y="52" width="56" height="44" fill="#4a7ac0" opacity=".0" />
@@ -93,7 +93,7 @@ export default function AboutScreen({ onBack }: { onBack: () => void }) {
         </div>
       </div>
       <div className="flex items-center justify-between p-[2.5cqw] pt-0" style={{ fontSize: "clamp(8px, 1.6cqw, 15px)" }}>
-        <span>◀ ▶ tappe del percorso</span>
+        <span>◀ ▶ stops on the route</span>
         <CancelButton onClick={onBack} />
       </div>
     </div>

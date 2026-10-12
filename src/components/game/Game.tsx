@@ -16,7 +16,7 @@ import type { BallId, Dir } from "./sprites";
 
 type Scene = "title" | "pokedex" | "lab" | BallId;
 
-const LABELS: Record<BallId, string> = { work: "I MIEI LAVORI", about: "CHI SONO", contact: "CONTATTI" };
+const LABELS: Record<BallId, string> = { work: "MY WORK", about: "ABOUT ME", contact: "CONTACT" };
 const KEYS: Record<string, Dir> = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right" };
 
 export default function Game() {
@@ -147,9 +147,9 @@ export default function Game() {
 
         <TouchPad press={press} release={release} />
 
-        <nav aria-label="Navigazione rapida" className="flex flex-wrap items-center justify-center gap-2 font-pixel text-[10px] text-[#c9d4f5]">
-          <span className="hidden sm:inline">Frecce/WASD · Z o Invio = A · X o Esc = B</span>
-          <span className="opacity-60">· Salta a:</span>
+        <nav aria-label="Quick navigation" className="flex flex-wrap items-center justify-center gap-2 font-pixel text-[10px] text-[#c9d4f5]">
+          <span className="hidden sm:inline">Arrows/WASD · Z or Enter = A · X or Esc = B</span>
+          <span className="opacity-60">· Skip to:</span>
           {(Object.keys(LABELS) as BallId[]).map((id) => (
             <button key={id} onClick={(e) => { e.currentTarget.blur(); held.current = []; setTalk(null); setScene(id); }} className="rounded border border-[#5a6a9a] px-2 py-1 hover:bg-[#2a3552]">
               {LABELS[id]}
@@ -180,7 +180,7 @@ function LabHud({ near }: { near: BallId | null }) {
         )}
       </AnimatePresence>
       <p className="pointer-events-none absolute inset-x-0 bottom-[1.5cqw] text-center font-pixel text-[#3a3a58]" style={{ fontSize: "clamp(7px, 1.9cqw, 16px)" }}>
-        Raggiungi il tavolo con le 3 Pokéball
+        Walk up to the table with the 3 Poké Balls
       </p>
     </>
   );

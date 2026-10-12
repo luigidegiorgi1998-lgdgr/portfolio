@@ -31,7 +31,7 @@ export default function PokedexMessage({ onDone }: { onDone: () => void }) {
           animate={{ opacity: [1, 0.3, 1] }}
           transition={{ repeat: Infinity, duration: 1 }}
         />
-        <span>POKéDEX · MESSAGGIO</span>
+        <span>POKéDEX · MESSAGE</span>
         <span className="ml-auto opacity-70">{page + 1}/{POKEDEX_PAGES.length}</span>
       </div>
       <div className="relative flex flex-1 flex-col items-center justify-end gap-[2cqw] overflow-hidden rounded-[1.5cqw] border-[0.8cqw] border-[#3a0e0b] bg-[#1c2b2e] p-[2cqw] shadow-[inset_0_0_3cqw_#000]">

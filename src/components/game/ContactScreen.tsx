@@ -34,7 +34,7 @@ function openItem(id: string) {
 
 export default function ContactScreen({ onBack }: { onBack: () => void }) {
   const [sel, setSel] = useState(0);
-  const total = BAG_ITEMS.length + 1; // + ANNULLA
+  const total = BAG_ITEMS.length + 1; // + CANCEL
   const act = (i: number) => (i < BAG_ITEMS.length ? openItem(BAG_ITEMS[i].id) : onBack());
 
   useGamepad({
@@ -46,18 +46,18 @@ export default function ContactScreen({ onBack }: { onBack: () => void }) {
     onB: onBack,
   });
 
-  const desc = sel < BAG_ITEMS.length ? BAG_ITEMS[sel].desc : "Torna al laboratorio.";
+  const desc = sel < BAG_ITEMS.length ? BAG_ITEMS[sel].desc : "Back to the lab.";
   return (
     <div className="absolute inset-0 flex flex-col bg-[#1d6f78] font-pixel" style={{ background: "repeating-linear-gradient(0deg,#2a8a94 0 1.2cqw,#1d6f78 1.2cqw 2.4cqw)" }}>
       <div className="grid flex-1 grid-cols-[34%_1fr] gap-[2cqw] p-[2.5cqw]">
         <motion.div className="flex flex-col items-center rounded-[1.5cqw] border-[0.7cqw] border-[#c9701c] bg-[#f0a45a] p-[1.5cqw] text-[#2a2438]" style={{ fontSize: "clamp(8px, 2.4cqw, 20px)" }} initial={{ x: -40, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>
-          <p className="rounded bg-[#c9701c] px-2 py-1 text-[#fff4e0]">◀ CONTATTI ▶</p>
+          <p className="rounded bg-[#c9701c] px-2 py-1 text-[#fff4e0]">◀ CONTACT ▶</p>
           <motion.div className="mt-[2cqw] w-[70%]" animate={{ y: [0, -4, 0] }} transition={{ repeat: Infinity, duration: 1.6 }}>
             <Bag />
           </motion.div>
         </motion.div>
         <motion.ul className="flex flex-col justify-center gap-[1cqw] rounded-[1.5cqw] border-[0.7cqw] border-[#c9a22a] bg-[#fdf1c8] p-[2cqw] text-[#2a2438]" style={{ fontSize: "clamp(8px, 2.2cqw, 20px)" }} initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} role="menu">
-          {[...BAG_ITEMS.map((b) => b.label), "ANNULLA"].map((label, i) => (
+          {[...BAG_ITEMS.map((b) => b.label), "CANCEL"].map((label, i) => (
             <li key={label} role="none">
               <button role="menuitem" onClick={() => (sel === i ? act(i) : setSel(i))} onMouseEnter={() => setSel(i)} className="flex w-full items-center gap-[1.5cqw] py-[1cqw] text-left">
                 <span className={`w-[1.5em] text-[#c0392b] ${sel === i ? "" : "invisible"}`}>▶</span>

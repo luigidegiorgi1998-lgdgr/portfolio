@@ -1,4 +1,4 @@
-// Tutti i testi del portfolio in un unico file: modificali qui.
+// All portfolio copy in one file: edit it here.
 
 export const PROFILE = {
   name: "Luigi De Giorgi",
@@ -9,12 +9,12 @@ export const PROFILE = {
   portrait: "/images/about/luigi-portrait.png",
 };
 
-// Messaggio del Pokédex (una "pagina" per riquadro di testo)
+// Pokédex message (one "page" per text box)
 export const POKEDEX_PAGES = [
-  "Nuovo messaggio ricevuto dal POKéDEX!",
-  "Ciao! Sono LUIGI DE GIORGI, product designer. 8 anni fa ripa- ravo auto. L'anno scorso preparavo caffè a Toronto.",
-  "Oggi progetto prodotti digitali: app, brand e dashboard. Ho imparato design e front-end costruendo cose vere.",
-  "Nel laboratorio ci sono 3 POKéBALL: i miei LAVORI, la mia STORIA e i miei CONTATTI. Scegline una!",
+  "New message received on the POKéDEX!",
+  "Hi! I'm LUIGI DE GIORGI, a product designer. 8 years ago I was fixing cars. Last year I was making coffee in Toronto.",
+  "Today I design digital products: apps, brands and dashboards. I taught myself design and front-end by building real things.",
+  "The lab has 3 POKé BALLS: my WORK, my STORY and my CONTACT. Pick one!",
 ];
 
 export type Project = {
@@ -37,150 +37,162 @@ export const PROJECTS: Project[] = [
   {
     id: "mylocalguide",
     title: "MyLocalGuide",
-    type: "App di viaggio",
+    type: "Travel app",
     year: "2025",
     role: "Product Designer",
     thumb: "/images/home/mylocalguide-card.png",
-    tags: ["Design system", "Mobile UI", "0→1"],
+    tags: ["Design system", "Mobile UI", "0→1", "Travel"],
     summary:
-      "Un'app che aiuta i viaggiatori a trovare le parti di una città che non finiscono nelle guide: la passeggiata, la terrazza, il passaggio che un local ti consiglierebbe davvero.",
+      "MyLocalGuide helps travellers find authentic local experiences in the city they're visiting: not the ten photos everyone already has, but the walk, the terrace, the passage a local would actually send you.",
     problem:
-      "Le app di viaggio ottimizzano le prenotazioni: la stessa lista di \"top attrazioni\" in ogni città. Ho progettato per la curiosità, come un amico che gira il mondo e ti scrive un consiglio.",
+      "Most travel apps optimise for booking volume: the same ranked list of \"top attractions\" in every city. I designed for curiosity instead, a product that feels like a well-travelled friend texting you a recommendation.",
+    highlights: [
+      "Built the UI kit and the product side by side, so every component was validated against real screens.",
+      "Immersive, full-bleed login and onboarding: the first screen sets the tone.",
+      "Discovery built around curated spots and city collections instead of a generic search bar.",
+      "A map view for browsing spots by area, so exploring a neighborhood doesn't mean scrolling a list.",
+    ],
     outcome:
-      "Premessa validata con un sondaggio su 25 persone prima di fissare l'MVP. Gli scenari di usability test sono pronti: le sessioni sono il prossimo passo.",
+      "Validated the core premise with a 25-person survey before locking the MVP scope. Usability test scenarios are written; sessions are the next step before refining the screens further.",
     images: [
       { src: "/images/mywork/mylocalguide-1.png", alt: "MyLocalGuide: onboarding" },
-      { src: "/images/mywork/mylocalguide-2.png", alt: "MyLocalGuide: scoperta" },
+      { src: "/images/mywork/mylocalguide-2.png", alt: "MyLocalGuide: discover" },
       { src: "/images/mywork/mylocalguide-3.png", alt: "MyLocalGuide: checkout" },
     ],
   },
   {
     id: "nolimits",
     title: "NoLimits",
-    type: "App di coaching",
+    type: "Coaching app",
     year: "2025",
     role: "Product Designer (solo)",
     thumb: "/images/mywork/nolimits-editor.png",
-    tags: ["Product design", "App mobile", "Dashboard web", "Design system", "Prototipo"],
+    tags: ["Product design", "Mobile app", "Web dashboard", "Design system", "Prototyping"],
     summary:
-      "Un'app di coaching premium che allena il corpo e cura la mente. Ho progettato l'app atleta e il pannello coach (web e mobile) per un vero business di coaching di cui sono cliente.",
+      "A premium online coaching app that trains the body and supports the mind, for athletes who want more than workouts. I designed the athlete app and the coach panel for a real coaching business.",
     problem:
-      "I coach gestiscono tutto tra WhatsApp e Instagram, con le schede in Excel: i piani si perdono nelle chat e i progressi non sono tracciati in modo coerente. L'ho vissuto da cliente e ho proposto un'app.",
+      "NoLimits coaches run everything through WhatsApp and Instagram, with training plans in Excel. Plans get buried in chat threads and progress isn't tracked anywhere consistent. I felt it first-hand as a client, so I proposed an app.",
     highlights: [
-      "Tre pacchetti, tre livelli di accesso: ogni piano sblocca le sezioni che gli appartengono.",
-      "WhatsApp resta per la community; l'app gestisce piani, tracking e storico.",
-      "Un esercizio per schermata, e la dieta segue il giorno (Day ON / Day OFF).",
-      "Modulo Mind: check-in di sonno e energia da 1 a 5, da notifica o widget.",
-      "Tre direzioni visive: ho scartato un redesign troppo lontano dal design system originale e ricostruito le schermate con i suoi componenti.",
+      "Packages shape the product: three tiers, each unlocking the sections that belong to it.",
+      "WhatsApp stays for the community; the app takes over plans, tracking and history.",
+      "One exercise per screen, and the diet follows the day (Day ON / Day OFF).",
+      "A Mind module: sleep and energy check-ins on a 1-5 scale, from a notification or a lockscreen widget.",
+      "Three visual directions; I rejected a redesign that drifted from the original design system and rebuilt it with the existing components.",
     ],
     outcome:
-      "17 schermate atleta, 10 sezioni del pannello coach web con equivalenti mobile e un prototipo con 436 collegamenti su tre pagine Figma. Design e funzionalità approvati dai coach; il passo successivo sono i test con atleti e coach. Accessibilità documentata: label da 9-10px e target sotto i 44pt da correggere prima dello sviluppo.",
+      "17 athlete screens, a coach panel with 10 web sections plus mobile equivalents, and a prototype with 436 links across three Figma pages. Design and features approved by the coaches; user trials come next. Accessibility gaps are documented (9-10px labels, tap targets under 44pt) to fix before a build.",
     images: [
-      { src: "/images/mywork/nolimits-app.png", alt: "App atleta: Home, Workout, Mind e scelta del piano" },
-      { src: "/images/mywork/nolimits-editor.png", alt: "Pannello coach: editor workout con body map" },
-      { src: "/images/mywork/nolimits-dashboard.png", alt: "Pannello coach: dashboard" },
-      { src: "/images/mywork/nolimits-iterazioni.png", alt: "Le iterazioni visive delle schermate" },
+      { src: "/images/mywork/nolimits-app.png", alt: "Athlete app: Home, Workout, Mind and plan selection" },
+      { src: "/images/mywork/nolimits-editor.png", alt: "Coach panel: workout editor with muscle body map" },
+      { src: "/images/mywork/nolimits-dashboard.png", alt: "Coach panel: dashboard" },
+      { src: "/images/mywork/nolimits-iterazioni.png", alt: "The visual iterations of the screens" },
     ],
   },
   {
     id: "fenwick",
     title: "Fenwick",
-    type: "Dashboard B2B",
+    type: "B2B dashboard",
     year: "2026",
     role: "Product Designer",
     thumb: "/images/home/fenwick-card-image2.png",
-    tags: ["SaaS", "Dashboard", "0→1"],
+    tags: ["SaaS", "Dashboards", "B2B", "0→1"],
     summary:
-      "Dashboard di approvazione spese: mostra a manager e finance il contesto giusto (budget residuo, categoria, urgenza) nel momento della decisione.",
+      "An expense-approval dashboard for managers and finance teams, built to surface the context a manager needs (budget left, category, urgency) at the moment of the decision.",
     problem:
-      "Fenwick è passata da 60 a 200 persone in 18 mesi. Le approvazioni viaggiavano su Slack e fogli condivisi: 4 giorni in media, e il 15% delle richieste andava perso.",
+      "Fenwick grew from 60 to 200 people in 18 months. Approvals still ran through Slack threads and shared spreadsheets, averaging 4 days, and 15% of requests got lost entirely.",
+    highlights: [
+      "A queue that leads with signal, not chronology: over-budget and urgent requests are flagged first.",
+      "Team budget context (spent vs. total) shown inside each request.",
+      "A request history view to spot a requester's patterns at a glance.",
+      "Light/dark theme with two switchable palettes.",
+    ],
     outcome:
-      "Prototipo funzionante dell'intero ciclo decisionale, progettato per portare i tempi da 4 giorni a meno di 24 ore. Tema chiaro/scuro con due palette.",
+      "A working prototype covering the full manager decision loop, designed to cut approval time from 4 days to under 24 hours. Tested with mock data at realistic scale: 9 queued requests and a 20-request history.",
     images: [
-      { src: "/images/mywork/fenwick-1.png", alt: "Fenwick: dettaglio spesa" },
-      { src: "/images/mywork/fenwick-2.png", alt: "Fenwick: coda approvazioni" },
-      { src: "/images/mywork/fenwick-3.png", alt: "Fenwick: budget" },
+      { src: "/images/mywork/fenwick-1.png", alt: "Fenwick: expense detail" },
+      { src: "/images/mywork/fenwick-2.png", alt: "Fenwick: approvals queue" },
+      { src: "/images/mywork/fenwick-3.png", alt: "Fenwick: budget overview" },
     ],
     liveUrl: "https://fenwick-expense-tool-ldg.vercel.app",
   },
 ];
 
-// Mappa della "regione": il mio percorso
+// The region map: my journey
 export const ROUTE = [
   {
     year: "2018",
-    place: "Officina",
-    title: "Meccanico",
-    text: "Ho iniziato riparando auto. Ho imparato a diagnosticare ascoltando cosa non va davvero, non cosa è più comodo incolpare.",
+    place: "Garage",
+    title: "Mechanic",
+    text: "I started fixing cars. I learned to diagnose by listening for what's actually wrong, not what's easiest to blame.",
     x: 26,
     y: 70,
   },
   {
     year: "2025",
-    place: "Porto Espresso",
-    title: "Barista a Toronto",
-    text: "Mi sono trasferito a Toronto e ho fatto caffè. Ho capito quanto conta un buon sistema quando hai 90 secondi e la fila fuori.",
+    place: "Espresso Port",
+    title: "Barista in Toronto",
+    text: "I moved to Toronto and pulled espresso for a living. I learned how much a good system matters with ninety seconds and a line out the door.",
     x: 60,
     y: 78,
   },
   {
     year: "2026",
-    place: "Borgo Design",
+    place: "Design Town",
     title: "Product Designer",
-    text: "Ho imparato design e front-end costruendo cose vere: un'app di viaggio, un brand di coaching, una dashboard B2B.",
+    text: "I taught myself design and front-end by building real things: a travel app, a coaching brand, a B2B dashboard.",
     x: 98,
     y: 42,
   },
   {
-    year: "Ora",
-    place: "Prossima Tappa",
-    title: "In cerca del prossimo problema",
-    text: "Aperto a ruoli di product design: in-house, agenzia o research. A inizio carriera, ma non nuovo a cavarmela sotto pressione.",
+    year: "Now",
+    place: "Next Stop",
+    title: "Looking for the next problem",
+    text: "Open to product design roles: in-house, agency or research-leaning. Early career, but not new to figuring things out under pressure.",
     x: 126,
     y: 24,
   },
 ];
 
-// Statistiche (segnaposto: valori da ritoccare a piacere, 0-100)
+// Stats (placeholder values to tweak, 0-100)
 export const STATS = [
-  { label: "Prodotto", value: 82 },
-  { label: "Sistemi", value: 76 },
-  { label: "Prototipi", value: 88 },
-  { label: "Ricerca", value: 64 },
+  { label: "Product", value: 82 },
+  { label: "Systems", value: 76 },
+  { label: "Prototype", value: 88 },
+  { label: "Research", value: 64 },
   { label: "Figma", value: 92 },
   { label: "AI", value: 85 },
 ];
 
 export const CARD_FIELDS = [
-  { label: "RUOLO", value: "Designer" },
-  { label: "DAL", value: "2018" },
-  { label: "PROGETTI", value: "3" },
+  { label: "ROLE", value: "Designer" },
+  { label: "SINCE", value: "2018" },
+  { label: "PROJECTS", value: "3" },
 ];
 
 export const BAG_ITEMS = [
   {
     id: "email",
     label: "EMAIL",
-    desc: `Scrivimi a ${PROFILE.email}. Rispondo in fretta, promesso.`,
+    desc: `Write to ${PROFILE.email}. I reply fast, promise.`,
   },
   {
     id: "linkedin",
     label: "LINKEDIN",
-    desc: "Il mio profilo professionale: esperienze, percorso e contatti.",
+    desc: "My professional profile: experience, journey and contacts.",
   },
   {
     id: "cv",
     label: "CV (PDF)",
-    desc: "Scarica il mio curriculum in PDF: una MT da usare subito.",
+    desc: "Download my CV as a PDF: a TM you can use right away.",
   },
 ] as const;
 
 export const NPC_LINES = {
   prof: [
-    "Prof: Benvenuto nel mio laboratorio!",
-    "Prof: Sul tavolo ci sono 3 POKéBALL. Mettiti davanti a una e premi A!",
+    "Prof: Welcome to my lab!",
+    "Prof: There are 3 POKé BALLS on the table. Stand in front of one and press A!",
   ],
-  rival: ["Rivale: Io ho già scelto. Anzi, le ho guardate tutte e tre!"],
-  assistant: ["Assistente: Il portfolio più veloce di Kanto... e dintorni."],
-  machine: ["Un macchinario misterioso. Meglio non toccare."],
+  rival: ["Rival: I already chose. Actually, I looked at all three!"],
+  assistant: ["Assistant: The fastest portfolio in Kanto... and beyond."],
+  machine: ["A mysterious machine. Better not touch it."],
 };

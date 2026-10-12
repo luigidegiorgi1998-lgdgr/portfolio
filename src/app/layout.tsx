@@ -17,7 +17,7 @@ const inter = Inter({
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 const SITE_NAME = "Luigi De Giorgi — Product Designer";
 const SITE_DESCRIPTION =
-  "Portfolio interattivo di Luigi De Giorgi, product designer: da meccanico a barista a designer. Esplora il laboratorio e scegli una Pokéball.";
+  "Interactive portfolio of Luigi De Giorgi, product designer: mechanic to barista to designer. Explore the lab and pick a Poké Ball.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="it"
+      lang="en"
       className={`${pixel.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink">

@@ -60,7 +60,7 @@ export function CancelButton({ onClick }: { onClick: () => void }) {
       className="rounded-full border-[0.6cqw] border-[#f4f2f8] bg-[#14182a] px-[3.5cqw] py-[1.4cqw] font-pixel text-[#f4f2f8] hover:bg-[#2a3050]"
       style={{ fontSize: "clamp(8px, 2.6cqw, 22px)" }}
     >
-      INDIETRO
+      BACK
     </button>
   );
 }

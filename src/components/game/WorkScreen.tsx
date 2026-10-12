@@ -67,7 +67,7 @@ export default function WorkScreen({ onBack }: { onBack: () => void }) {
 
       <div className="flex items-center gap-[2cqw] p-[2.5cqw] pt-0">
         <div className="flex-1 rounded-[1.2cqw] border-[0.7cqw] border-[#3a3a58] bg-[#f8f8fc] px-[3cqw] py-[1.8cqw] text-[#2a2438]" style={{ fontSize: "clamp(8px, 1.9cqw, 18px)" }}>
-          Scegli un progetto.
+          Choose a project.
         </div>
         <CancelButton onClick={onBack} />
       </div>
@@ -98,15 +98,15 @@ function Lightbox({ i, img, setImg, onClose }: { i: number; img: number; setImg:
     <div className="fixed inset-0 z-[100] flex flex-col bg-black/95 font-pixel text-[#f4f2f8]" role="dialog" aria-modal="true" aria-label={p.images[img].alt}>
       <div className="flex items-center justify-between gap-3 p-3 text-[11px]">
         <span className="truncate">{p.title} · {img + 1}/{n}</span>
-        <button autoFocus onClick={onClose} className="rounded border-2 border-[#f4f2f8] px-3 py-2 hover:bg-white/10">✕ CHIUDI</button>
+        <button autoFocus onClick={onClose} className="rounded border-2 border-[#f4f2f8] px-3 py-2 hover:bg-white/10">✕ CLOSE</button>
       </div>
       <div className="relative min-h-0 flex-1">
         <Image src={p.images[img].src} alt={p.images[img].alt} fill sizes="100vw" className="object-contain" quality={90} />
       </div>
       <div className="flex items-center justify-center gap-4 p-3 text-[11px]">
-        <button onClick={() => setImg((img + n - 1) % n)} aria-label="Immagine precedente" className="rounded border-2 border-[#f4f2f8] px-4 py-2 hover:bg-white/10">◀</button>
+        <button onClick={() => setImg((img + n - 1) % n)} aria-label="Previous image" className="rounded border-2 border-[#f4f2f8] px-4 py-2 hover:bg-white/10">◀</button>
         <span className="max-w-[60vw] truncate font-sans text-[13px] opacity-80">{p.images[img].alt}</span>
-        <button onClick={() => setImg((img + 1) % n)} aria-label="Immagine successiva" className="rounded border-2 border-[#f4f2f8] px-4 py-2 hover:bg-white/10">▶</button>
+        <button onClick={() => setImg((img + 1) % n)} aria-label="Next image" className="rounded border-2 border-[#f4f2f8] px-4 py-2 hover:bg-white/10">▶</button>
       </div>
     </div>,
     document.body,
@@ -137,7 +137,7 @@ function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; s
             ))}
           </div>
           <button onClick={onZoom} className="mx-auto mt-3 block rounded border-2 border-[#2d4a8a] px-3 py-1.5 font-pixel text-[10px] text-[#2d4a8a] hover:bg-[#2d4a8a] hover:text-[#f4f2f8]">
-            ⤢ SCHERMO INTERO
+            ⤢ FULL SCREEN
           </button>
         </div>
         <div className="space-y-3 text-[clamp(12px,2.2cqw,17px)] leading-relaxed">
@@ -148,7 +148,7 @@ function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; s
             ))}
           </div>
           <p>{p.summary}</p>
-          <p><b>Problema.</b> {p.problem}</p>
+          <p><b>Problem.</b> {p.problem}</p>
           {p.highlights && (
             <ul className="list-disc space-y-1 pl-5">
               {p.highlights.map((h) => (
@@ -156,17 +156,17 @@ function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; s
               ))}
             </ul>
           )}
-          <p><b>Risultato.</b> {p.outcome}</p>
+          <p><b>Outcome.</b> {p.outcome}</p>
           {p.liveUrl && (
             <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full bg-[#e0453a] px-4 py-2 font-pixel text-[10px] text-white hover:bg-[#c0392b]">
-              ▶ PROTOTIPO LIVE
+              ▶ LIVE PROTOTYPE
             </a>
           )}
         </div>
       </div>
       <div className="flex justify-between border-t-4 border-[#2d4a8a] bg-[#e4e1ee] px-4 py-2 font-pixel text-[10px]">
-        <span>◀ ▶ cambia immagine</span>
-        <button onClick={onClose} className="text-[#c0392b]">B · CHIUDI</button>
+        <span>◀ ▶ change image</span>
+        <button onClick={onClose} className="text-[#c0392b]">B · CLOSE</button>
       </div>
     </>
   );

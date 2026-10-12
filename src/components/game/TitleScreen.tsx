@@ -11,7 +11,7 @@ export default function TitleScreen({ onStart }: { onStart: () => void }) {
     <button
       onClick={onStart}
       className="absolute inset-0 flex flex-col items-center justify-center gap-[3cqw] overflow-hidden bg-[#0e1430] text-center font-pixel text-[#f4f2f8]"
-      aria-label="Premi per iniziare"
+      aria-label="Press to start"
     >
       <div className="pointer-events-none absolute inset-0 opacity-30" style={{ background: "repeating-linear-gradient(135deg,#1b2455 0 12px,#0e1430 12px 24px)" }} />
       <motion.div initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: "spring", stiffness: 120, damping: 12 }}>
@@ -37,7 +37,7 @@ export default function TitleScreen({ onStart }: { onStart: () => void }) {
         animate={{ opacity: [1, 0, 1] }}
         transition={{ repeat: Infinity, duration: 1.2 }}
       >
-        ▶ PREMI START / A
+        ▶ PRESS START / A
       </motion.p>
     </button>
   );

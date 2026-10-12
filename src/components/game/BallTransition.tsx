@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-/** La Pokéball si apre e un lampo bianco copre lo schermo, poi si cambia scena. */
+/** The Poké Ball opens and a white flash covers the screen, then the scene changes. */
 export default function BallTransition({ onMid, onDone }: { onMid: () => void; onDone: () => void }) {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

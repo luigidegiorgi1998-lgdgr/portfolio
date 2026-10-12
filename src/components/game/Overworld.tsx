@@ -126,7 +126,7 @@ export default function Overworld({ active, player, onNear, onBall, onTalk }: Pr
       height={ROWS * TILE}
       className="block w-full"
       style={{ imageRendering: "pixelated", aspectRatio: `${COLS} / ${ROWS}` }}
-      aria-label="Laboratorio del Professore: muoviti con le frecce"
+      aria-label="Professor's lab: move with the arrow keys"
       role="img"
     />
   );
