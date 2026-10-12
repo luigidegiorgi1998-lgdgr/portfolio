@@ -152,7 +152,8 @@ const ALL_PROJECTS: Project[] = [
       { src: "/images/mywork/mira-hero.png", alt: "Home page on web and mobile: brand signature and full-bleed photography" },
       { src: "/images/mywork/mira-system.png", alt: "Design system: palette, type, buttons, cards, header, footer, size chips and input fields" },
       { src: "/images/mywork/mira-cards.png", alt: "Minimal product card: image only, details on hover or when fully in view on mobile" },
-      // Still to add: overlay contrast fix, Next drop A-E, product + made-to-measure, checkout, mobile rules.
+      { src: "/images/mywork/mira-product.png", alt: "Made-to-measure product page with a size guide and a custom-measurements form; sold-out sizes are crossed by a slanted line" },
+      // Still to add: overlay contrast fix, Next drop A-E, checkout, mobile rules.
     ],
   },
 ];
