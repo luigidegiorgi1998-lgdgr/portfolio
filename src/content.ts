@@ -60,7 +60,7 @@ export const PROJECTS: Project[] = [
     type: "App di coaching",
     year: "2025",
     role: "Product Designer (solo)",
-    thumb: "/images/home/nolimits-home.png",
+    thumb: "/images/mywork/nolimits-editor.png",
     tags: ["Product design", "App mobile", "Dashboard web", "Design system", "Prototipo"],
     summary:
       "Un'app di coaching premium che allena il corpo e cura la mente. Ho progettato l'app atleta e il pannello coach (web e mobile) per un vero business di coaching di cui sono cliente.",
@@ -76,9 +76,10 @@ export const PROJECTS: Project[] = [
     outcome:
       "17 schermate atleta, 10 sezioni del pannello coach web con equivalenti mobile e un prototipo con 436 collegamenti su tre pagine Figma. Design e funzionalità approvati dai coach; il passo successivo sono i test con atleti e coach. Accessibilità documentata: label da 9-10px e target sotto i 44pt da correggere prima dello sviluppo.",
     images: [
-      { src: "/images/mywork/nolimits-1.png", alt: "NoLimits: esercizio" },
-      { src: "/images/mywork/nolimits-2.png", alt: "NoLimits: home" },
-      { src: "/images/mywork/nolimits-3.png", alt: "NoLimits: piano alimentare" },
+      { src: "/images/mywork/nolimits-app.png", alt: "App atleta: Home, Workout, Mind e scelta del piano" },
+      { src: "/images/mywork/nolimits-editor.png", alt: "Pannello coach: editor workout con body map" },
+      { src: "/images/mywork/nolimits-dashboard.png", alt: "Pannello coach: dashboard" },
+      { src: "/images/mywork/nolimits-iterazioni.png", alt: "Le iterazioni visive delle schermate" },
     ],
   },
   {
