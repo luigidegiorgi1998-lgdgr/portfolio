@@ -153,7 +153,8 @@ const ALL_PROJECTS: Project[] = [
       { src: "/images/mywork/mira-system.png", alt: "Design system: palette, type, buttons, cards, header, footer, size chips and input fields" },
       { src: "/images/mywork/mira-cards.png", alt: "Minimal product card: image only, details on hover or when fully in view on mobile" },
       { src: "/images/mywork/mira-product.png", alt: "Made-to-measure product page with a size guide and a custom-measurements form; sold-out sizes are crossed by a slanted line" },
-      // Still to add: overlay contrast fix, Next drop A-E, checkout, mobile rules.
+      { src: "/images/mywork/mira-contrast.png", alt: "Overlay opacity tests from 88% to 40%, and the final fix: 40% with a background blur and a text halo" },
+      // Still to add: Next drop D, cart and checkout, mobile rules.
     ],
   },
 ];
