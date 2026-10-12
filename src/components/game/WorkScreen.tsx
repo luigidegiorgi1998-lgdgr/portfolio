@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { PROJECTS } from "@/content";
@@ -11,6 +12,7 @@ export default function WorkScreen({ onBack }: { onBack: () => void }) {
   const [sel, setSel] = useState(0);
   const [open, setOpen] = useState<number | null>(null);
   const [img, setImg] = useState(0);
+  const [zoom, setZoom] = useState(false);
 
   const openProject = (i: number) => {
     setSel(i);
@@ -28,7 +30,7 @@ export default function WorkScreen({ onBack }: { onBack: () => void }) {
       if (d === "up" || d === "left") setSel((v) => Math.max(0, v - 1));
     },
     onA: () => (open === null ? openProject(sel) : undefined),
-    onB: () => (open !== null ? setOpen(null) : onBack()),
+    onB: () => (zoom ? setZoom(false) : open !== null ? setOpen(null) : onBack()),
   });
 
   return (
@@ -80,15 +82,38 @@ export default function WorkScreen({ onBack }: { onBack: () => void }) {
             exit={{ opacity: 0, scale: 0.92 }}
             transition={{ duration: 0.2 }}
           >
-            <Detail i={open} img={img} setImg={setImg} onClose={() => setOpen(null)} />
+            <Detail i={open} img={img} setImg={setImg} onZoom={() => setZoom(true)} onClose={() => setOpen(null)} />
           </motion.div>
         )}
       </AnimatePresence>
+      {zoom && open !== null && <Lightbox i={open} img={img} setImg={setImg} onClose={() => setZoom(false)} />}
     </div>
   );
 }
 
-function Detail({ i, img, setImg, onClose }: { i: number; img: number; setImg: (n: number) => void; onClose: () => void }) {
+function Lightbox({ i, img, setImg, onClose }: { i: number; img: number; setImg: (n: number) => void; onClose: () => void }) {
+  const p = PROJECTS[i];
+  const n = p.images.length;
+  return createPortal(
+    <div className="fixed inset-0 z-[100] flex flex-col bg-black/95 font-pixel text-[#f4f2f8]" role="dialog" aria-modal="true" aria-label={p.images[img].alt}>
+      <div className="flex items-center justify-between gap-3 p-3 text-[11px]">
+        <span className="truncate">{p.title} · {img + 1}/{n}</span>
+        <button autoFocus onClick={onClose} className="rounded border-2 border-[#f4f2f8] px-3 py-2 hover:bg-white/10">✕ CHIUDI</button>
+      </div>
+      <div className="relative min-h-0 flex-1">
+        <Image src={p.images[img].src} alt={p.images[img].alt} fill sizes="100vw" className="object-contain" quality={90} />
+      </div>
+      <div className="flex items-center justify-center gap-4 p-3 text-[11px]">
+        <button onClick={() => setImg((img + n - 1) % n)} aria-label="Immagine precedente" className="rounded border-2 border-[#f4f2f8] px-4 py-2 hover:bg-white/10">◀</button>
+        <span className="max-w-[60vw] truncate font-sans text-[13px] opacity-80">{p.images[img].alt}</span>
+        <button onClick={() => setImg((img + 1) % n)} aria-label="Immagine successiva" className="rounded border-2 border-[#f4f2f8] px-4 py-2 hover:bg-white/10">▶</button>
+      </div>
+    </div>,
+    document.body,
+  );
+}
+
+function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; setImg: (n: number) => void; onZoom: () => void; onClose: () => void }) {
   const p = PROJECTS[i];
   return (
     <>
@@ -111,6 +136,9 @@ function Detail({ i, img, setImg, onClose }: { i: number; img: number; setImg: (
               <button key={im.src} onClick={() => setImg(n)} aria-label={im.alt} className={`h-3 w-3 rounded-full border-2 border-[#2d4a8a] ${n === img ? "bg-[#2d4a8a]" : "bg-transparent"}`} />
             ))}
           </div>
+          <button onClick={onZoom} className="mx-auto mt-3 block rounded border-2 border-[#2d4a8a] px-3 py-1.5 font-pixel text-[10px] text-[#2d4a8a] hover:bg-[#2d4a8a] hover:text-[#f4f2f8]">
+            ⤢ SCHERMO INTERO
+          </button>
         </div>
         <div className="space-y-3 text-[clamp(12px,2.2cqw,17px)] leading-relaxed">
           <p className="font-semibold">{p.role} · {p.type}</p>
