@@ -121,6 +121,13 @@ function Detail({ i, img, setImg, onClose }: { i: number; img: number; setImg: (
           </div>
           <p>{p.summary}</p>
           <p><b>Problema.</b> {p.problem}</p>
+          {p.highlights && (
+            <ul className="list-disc space-y-1 pl-5">
+              {p.highlights.map((h) => (
+                <li key={h}>{h}</li>
+              ))}
+            </ul>
+          )}
           <p><b>Risultato.</b> {p.outcome}</p>
           {p.liveUrl && (
             <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block rounded-full bg-[#e0453a] px-4 py-2 font-pixel text-[10px] text-white hover:bg-[#c0392b]">

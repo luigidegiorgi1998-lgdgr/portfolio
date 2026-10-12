@@ -28,6 +28,7 @@ export type Project = {
   summary: string;
   problem: string;
   outcome: string;
+  highlights?: string[];
   images: { src: string; alt: string }[];
   liveUrl?: string;
 };
@@ -58,15 +59,22 @@ export const PROJECTS: Project[] = [
     title: "NoLimits",
     type: "App di coaching",
     year: "2025",
-    role: "Product Designer",
+    role: "Product Designer (solo)",
     thumb: "/images/home/nolimits-home.png",
-    tags: ["Brand identity", "Mobile UI", "Coaching"],
+    tags: ["Product design", "App mobile", "Dashboard web", "Design system", "Prototipo"],
     summary:
-      "Brand e identità di prodotto per un'app di coaching pensata per chi si allena a modo suo: personale, disciplinata e un po' feroce.",
+      "Un'app di coaching premium che allena il corpo e cura la mente. Ho progettato l'app atleta e il pannello coach (web e mobile) per un vero business di coaching di cui sono cliente.",
     problem:
-      "Le app di coaching sono o cliniche (grafici, streak, sensi di colpa) o troppo patinate. Nessuna delle due conquista chi si allena sul serio ma non vuole essere \"venduto\".",
+      "I coach gestiscono tutto tra WhatsApp e Instagram, con le schede in Excel: i piani si perdono nelle chat e i progressi non sono tracciati in modo coerente. L'ho vissuto da cliente e ho proposto un'app.",
+    highlights: [
+      "Tre pacchetti, tre livelli di accesso: ogni piano sblocca le sezioni che gli appartengono.",
+      "WhatsApp resta per la community; l'app gestisce piani, tracking e storico.",
+      "Un esercizio per schermata, e la dieta segue il giorno (Day ON / Day OFF).",
+      "Modulo Mind: check-in di sonno e energia da 1 a 5, da notifica o widget.",
+      "Tre direzioni visive: ho scartato un redesign troppo lontano dal design system originale e ricostruito le schermate con i suoi componenti.",
+    ],
     outcome:
-      "Un design system applicato alle schermate chiave (dashboard, libreria allenamenti, piani alimentari, check-in settimanali). Confronto piani e pagamenti sono i prossimi flussi.",
+      "17 schermate atleta, 10 sezioni del pannello coach web con equivalenti mobile e un prototipo con 436 collegamenti su tre pagine Figma. Design e funzionalità approvati dai coach; il passo successivo sono i test con atleti e coach. Accessibilità documentata: label da 9-10px e target sotto i 44pt da correggere prima dello sviluppo.",
     images: [
       { src: "/images/mywork/nolimits-1.png", alt: "NoLimits: esercizio" },
       { src: "/images/mywork/nolimits-2.png", alt: "NoLimits: home" },
