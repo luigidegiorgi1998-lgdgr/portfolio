@@ -7,6 +7,11 @@ import { CARD_FIELDS, PROFILE, ROUTE, STATS } from "@/content";
 import { useGamepad } from "./controls";
 import { CancelButton } from "./ui";
 
+const ISLAND =
+  "18,50 14,36 26,24 44,20 58,12 80,14 98,10 120,12 138,22 144,40 136,56 120,66 102,74 84,82 62,88 40,86 26,76 18,62";
+const WAVES = [[4, 8], [30, 3], [90, 4], [132, 6], [148, 30], [6, 70], [3, 88], [112, 86], [140, 80], [70, 92], [20, 92], [148, 60]];
+const TREES = [[38, 34], [48, 40], [30, 44], [108, 24], [114, 58], [84, 58], [72, 70], [128, 46], [50, 56]];
+
 export default function AboutScreen({ onBack }: { onBack: () => void }) {
   const [node, setNode] = useState(0);
   useGamepad({
@@ -21,7 +26,7 @@ export default function AboutScreen({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="absolute inset-0 flex flex-col overflow-y-auto bg-[#3b6fb0] @lg:overflow-hidden font-pixel text-[#f4f2f8]" style={{ background: "repeating-linear-gradient(135deg,#4a7fc4 0 2.4cqw,#3b6fb0 2.4cqw 4.8cqw)" }}>
-      <div className="grid min-h-0 flex-1 grid-cols-1 gap-[2cqw] p-[2.5cqw] @lg:grid-cols-[38%_1fr] @lg:grid-rows-[minmax(0,1fr)]">
+      <div className="grid flex-1 grid-cols-1 @lg:min-h-0 gap-[2cqw] p-[2.5cqw] @lg:grid-cols-[38%_1fr] @lg:grid-rows-[minmax(0,1fr)]">
         {/* Scheda allenatore */}
         <motion.section
           className="rounded-[1.5cqw] border-[0.7cqw] border-[#2a3a6a] bg-[#e8f0fb] p-[2cqw] text-[#2a2438]"
@@ -61,15 +66,22 @@ export default function AboutScreen({ onBack }: { onBack: () => void }) {
         </motion.section>
 
         {/* Map */}
-        <div className="flex min-h-0 min-w-0 flex-col gap-[2cqw]">
-          <motion.section className="flex min-h-0 flex-1 flex-col rounded-[1.5cqw] border-[0.7cqw] border-[#2a3a6a] bg-[#14182a]/90 p-[2cqw]" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
+        <div className="flex min-w-0 flex-col gap-[2cqw] @lg:min-h-0">
+          <motion.section className="flex flex-1 flex-col @lg:min-h-0 rounded-[1.5cqw] border-[0.7cqw] border-[#2a3a6a] bg-[#14182a]/90 p-[2cqw]" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
             <p className="mb-[1cqw] text-[#ffd23f]" style={{ fontSize: "clamp(8px, 1.6cqw, 15px)" }}>REGION · MY JOURNEY</p>
-            <svg viewBox="0 0 156 96" className="h-0 min-h-[90px] w-full flex-1 rounded-[1cqw]" preserveAspectRatio="xMidYMid meet" style={{ imageRendering: "pixelated", background: "#5fae5a" }} role="img" aria-label="Map of my journey: Mechanic, Barista, Product Designer">
-              <rect width="156" height="96" fill="#5fae5a" />
-              <rect y="60" width="70" height="36" fill="#3f87d8" />
-              <rect x="100" y="52" width="56" height="44" fill="#4a7ac0" opacity=".0" />
-              {[...Array(16)].map((_, i) => (
-                <rect key={i} x={(i * 37) % 150} y={(i * 53) % 90} width="4" height="4" fill="#4d9a4a" />
+            <svg viewBox="0 0 156 96" className="h-0 min-h-[170px] w-full @lg:min-h-[90px] flex-1 rounded-[1cqw]" preserveAspectRatio="xMidYMid meet" style={{ imageRendering: "pixelated", background: "#3f87d8" }} role="img" aria-label="Map of my journey: Mechanic, Barista, Product Designer">
+              <rect width="156" height="96" fill="#3f87d8" />
+              {WAVES.map(([x, y], i) => (
+                <rect key={i} x={x} y={y} width="6" height="1" fill="#8cc4f2" />
+              ))}
+              <polygon points={ISLAND} fill="#8cc4f2" stroke="#8cc4f2" strokeWidth="9" strokeLinejoin="round" opacity=".55" />
+              <polygon points={ISLAND} fill="#5fae5a" stroke="#e8d68a" strokeWidth="4" strokeLinejoin="round" />
+              <rect x="70" y="26" width="14" height="9" fill="#3f87d8" stroke="#8cc4f2" strokeWidth="1" />
+              {TREES.map(([x, y], i) => (
+                <g key={i}>
+                  <rect x={x} y={y} width="4" height="4" fill="#3d8a3a" />
+                  <rect x={x + 1} y={y + 4} width="2" height="2" fill="#7a5a2a" />
+                </g>
               ))}
               <path d={path} fill="none" stroke="#c8a860" strokeWidth="5" strokeLinecap="square" strokeLinejoin="round" />
               <motion.path d={path} fill="none" stroke="#f4e4a8" strokeWidth="1.5" strokeDasharray="3 3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.6, ease: "easeInOut" }} />

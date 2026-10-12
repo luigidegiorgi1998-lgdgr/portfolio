@@ -139,6 +139,7 @@ function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; s
           <button onClick={onZoom} className="mx-auto mt-3 block rounded border-2 border-[#2d4a8a] px-3 py-1.5 font-pixel text-[10px] text-[#2d4a8a] hover:bg-[#2d4a8a] hover:text-[#f4f2f8]">
             ⤢ FULL SCREEN
           </button>
+          {p.imageNote && <p className="mt-2 text-center text-[12px] italic leading-snug text-[#5a5a7a]">{p.imageNote}</p>}
         </div>
         <div className="space-y-3 text-[clamp(12px,2.2cqw,17px)] leading-relaxed">
           <p className="font-semibold">{p.role} · {p.type}</p>

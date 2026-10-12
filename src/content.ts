@@ -29,6 +29,7 @@ export type Project = {
   problem: string;
   outcome: string;
   highlights?: string[];
+  imageNote?: string;
   images: { src: string; alt: string }[];
   liveUrl?: string;
 };
@@ -81,6 +82,8 @@ export const PROJECTS: Project[] = [
     ],
     outcome:
       "17 athlete screens, a coach panel with 10 web sections plus mobile equivalents, and a prototype with 436 links across three Figma pages. Design and features approved by the coaches; user trials come next. Accessibility gaps are documented (9-10px labels, tap targets under 44pt) to fix before a build.",
+    imageNote:
+      "The interface is in Italian because NoLimits' athletes and coaches are Italian-speaking. Captions are in English.",
     images: [
       { src: "/images/mywork/nolimits-app.png", alt: "Athlete app: Home, Workout, Mind and plan selection" },
       { src: "/images/mywork/nolimits-editor.png", alt: "Coach panel: workout editor with muscle body map" },
@@ -124,8 +127,8 @@ export const ROUTE = [
     place: "Garage",
     title: "Mechanic",
     text: "I started fixing cars. I learned to diagnose by listening for what's actually wrong, not what's easiest to blame.",
-    x: 26,
-    y: 70,
+    x: 30,
+    y: 62,
   },
   {
     year: "2025",
@@ -133,23 +136,23 @@ export const ROUTE = [
     title: "Barista in Toronto",
     text: "I moved to Toronto and pulled espresso for a living. I learned how much a good system matters with ninety seconds and a line out the door.",
     x: 60,
-    y: 78,
+    y: 74,
   },
   {
     year: "2026",
     place: "Design Town",
     title: "Product Designer",
     text: "I taught myself design and front-end by building real things: a travel app, a coaching brand, a B2B dashboard.",
-    x: 98,
-    y: 42,
+    x: 96,
+    y: 50,
   },
   {
     year: "Now",
     place: "Next Stop",
     title: "Looking for the next problem",
     text: "Open to product design roles: in-house, agency or research-leaning. Early career, but not new to figuring things out under pressure.",
-    x: 126,
-    y: 24,
+    x: 124,
+    y: 28,
   },
 ];
 
