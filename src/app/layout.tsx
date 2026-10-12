@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
-import { Anton, JetBrains_Mono, Inter } from "next/font/google";
+import { Press_Start_2P, Inter } from "next/font/google";
 import "./globals.css";
-import CursorTrail from "@/components/CursorTrail";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
-const anton = Anton({
-  variable: "--font-anton",
+const pixel = Press_Start_2P({
+  variable: "--font-pixel",
   subsets: ["latin"],
   weight: "400",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
 });
 
 const inter = Inter({
@@ -26,7 +17,7 @@ const inter = Inter({
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 const SITE_NAME = "Luigi De Giorgi — Product Designer";
 const SITE_DESCRIPTION =
-  "Mechanic → barista → designer. Portfolio of Luigi De Giorgi, product designer.";
+  "Interactive portfolio of Luigi De Giorgi, product designer: mechanic to barista to designer. Explore the lab and pick a Poké Ball.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -53,13 +44,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${jetbrainsMono.variable} ${inter.variable} h-full antialiased`}
+      className={`${pixel.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bg text-ink">
-        <CursorTrail />
-        <Header />
         <main className="flex-1 flex flex-col">{children}</main>
-        <Footer />
       </body>
     </html>
   );

@@ -1,13 +1,22 @@
 # Luigi De Giorgi — Portfolio
 
-Personal product design portfolio. Next.js (App Router) + TypeScript + Tailwind CSS v4 + Framer Motion.
+An interactive, Pokémon-style product design portfolio. Next.js (App Router) + TypeScript + Tailwind CSS v4 + Framer Motion. Everything lives on one page (`/`).
 
-## Pages
+## How it works
 
-- `/` — Home
-- `/my-work` — case studies (MyLocalGuide, NoLimits, Fenwick)
-- `/about` — About
-- `/contact` — CV / Contact
+A walkable lab (canvas pixel art) opens with a Pokédex message. Three Poké Balls on the table lead to:
+
+- **My work**: party-menu style list of the case studies, with a detail view and a full-screen image viewer.
+- **About me**: trainer card with stats and a map of the journey drawn as an island.
+- **Contact**: bag menu with email, LinkedIn and the CV download.
+
+Controls: arrows/WASD to walk, Z or Enter = A, X or Esc = B. On touch screens a D-pad appears. A "Skip to" bar jumps straight to any section. Motion respects `prefers-reduced-motion`.
+
+## Editing the content
+
+All copy, projects, stats, the journey and the NPC lines are in **`src/content.ts`**. Project images live in `public/images/mywork/`. To hide a project until it is ready, set `draft: true` on it. Each project is tagged `client` or `concept`, which shows as a label.
+
+The pixel art is drawn in code (`src/components/game/sprites.ts`), with no official sprites.
 
 ## Getting started
 
@@ -16,35 +25,23 @@ npm install
 npm run dev
 ```
 
-The dev server runs on **port 3100** (`http://localhost:3100`), with webpack rather than Turbopack — see "Known issues" below.
+The dev server runs on **port 3100** (`http://localhost:3100`), with webpack rather than Turbopack.
 
-## Scripts
-
-| Script          | What it does                                   |
-| --------------- | ----------------------------------------------- |
-| `npm run dev`   | Dev server on :3100 (webpack)                   |
-| `npm run build` | Production build                                |
-| `npm run start` | Serve the production build on :3100             |
-| `npm run lint`  | ESLint                                          |
+| Script          | What it does                        |
+| --------------- | ----------------------------------- |
+| `npm run dev`   | Dev server on :3100 (webpack)       |
+| `npm run build` | Production build                    |
+| `npm run start` | Serve the production build on :3100 |
+| `npm run lint`  | ESLint                              |
 
 ## Environment variables
 
-Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` to the site's real domain once deployed — it's used to build absolute URLs in `sitemap.xml`, `robots.txt`, and Open Graph tags.
-
-## Notable implementation details
-
-- **Motion**: shared-element page transitions (View Transitions API) between the Home project cards and their My Work headline, page-entry micro-motion, a custom cursor trail (desktop only, respects `prefers-reduced-motion`), and a Framer Motion carousel with drag/swipe support. See `motion-spec.md`.
-- **Responsive**: standard `768px` breakpoint, plus a dedicated `1100px` breakpoint for the Home hero/bento layout. See `responsive-spec.md`.
-- **Design tokens**: colors and fonts are defined in `src/app/globals.css` (`@theme inline`) and mapped to Tailwind utilities (`bg-bg`, `text-ink`, `text-muted`, `bg-accent`, `bg-card-dark`, `font-display`, `font-mono`, `font-sans`).
-
-## Known issues
-
-- **Turbopack crashes in this dev sandbox**: `next dev`'s default Turbopack bundler panics here with `spawning node pooled process: No such file or directory`, an environment-specific PATH issue with Turbopack's own child-process spawning — not a bug in this codebase. `npm run dev` / `npm run build` are pinned to `--webpack` to work around it. If Turbopack works fine on your machine, feel free to drop `--webpack` from the scripts in `package.json`.
+Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` to the site's real domain. It builds the absolute URLs in `sitemap.xml`, `robots.txt` and the Open Graph tags.
 
 ## Deployment
 
-Any Next.js host (Vercel, Netlify, etc.) works. Remember to:
+Any Next.js host works (it is deployed on Vercel). Before sending the link around:
 
 1. Set `NEXT_PUBLIC_SITE_URL` in the host's environment variables.
-2. Point the domain's DNS once you have one.
-3. Re-check `npm run build` passes on the host's Node version.
+2. Make sure the production branch is the one you want public.
+3. Open the live URL in a private window and on a phone.

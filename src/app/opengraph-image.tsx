@@ -14,7 +14,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#faf9fc",
+          background: "#0e1226",
         }}
       >
         <div
@@ -23,7 +23,7 @@ export default function OpengraphImage() {
             fontSize: 22,
             letterSpacing: 2,
             textTransform: "uppercase",
-            color: "#6d28d9",
+            color: "#ffd23f",
             fontWeight: 700,
           }}
         >
@@ -34,19 +34,19 @@ export default function OpengraphImage() {
             display: "flex",
             fontSize: 76,
             fontWeight: 700,
-            color: "#17141d",
+            color: "#f4f2f8",
             marginTop: 24,
             lineHeight: 1.1,
             maxWidth: 980,
           }}
         >
-          Hi. I&apos;m Luigi, and you probably don&apos;t know me.
+          Luigi De Giorgi: an interactive Pokémon-style portfolio.
         </div>
         <div
           style={{
             display: "flex",
             fontSize: 28,
-            color: "#4d485a",
+            color: "#c9d4f5",
             marginTop: 32,
           }}
         >
