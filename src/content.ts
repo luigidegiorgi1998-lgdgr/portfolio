@@ -127,7 +127,6 @@ const ALL_PROJECTS: Project[] = [
   {
     id: "mira",
     kind: "client",
-    draft: true,
     title: "MIRA",
     type: "E-commerce",
     year: "2026",
@@ -151,13 +150,9 @@ const ALL_PROJECTS: Project[] = [
       "The client is Italian, so the interface is in Italian. A language selector (IT / EN) is part of the header.",
     images: [
       { src: "/images/mywork/mira-hero.png", alt: "Home page on web and mobile: brand signature and full-bleed photography" },
-      { src: "/images/mywork/mira-system.png", alt: "Colour and type tokens feeding ten-plus components with real states" },
+      { src: "/images/mywork/mira-system.png", alt: "Design system: palette, type, buttons, cards, header, footer, size chips and input fields" },
       { src: "/images/mywork/mira-cards.png", alt: "Minimal product card: image only, details on hover or when fully in view on mobile" },
-      { src: "/images/mywork/mira-contrast.png", alt: "Overlay from 95% to 40% and the contrast fix, before and after" },
-      { src: "/images/mywork/mira-next-drop.png", alt: "Five ways to build anticipation; the client chose D, countdown and waitlist" },
-      { src: "/images/mywork/mira-product.png", alt: "Product page and made-to-measure flow with size guide and custom measurements" },
-      { src: "/images/mywork/mira-checkout.png", alt: "Cart, checkout and confirmation, following Shopify's native structure" },
-      { src: "/images/mywork/mira-mobile.png", alt: "Mobile rules: full-screen menu, solid header on scroll, bottom sheets, sticky add-to-cart" },
+      // Still to add: overlay contrast fix, Next drop A-E, product + made-to-measure, checkout, mobile rules.
     ],
   },
 ];
