@@ -170,14 +170,14 @@ export default function Game() {
 
 function LabHud({ near }: { near: Spot | null }) {
   const col = near ? { work: 6, about: 7, contact: 8, library: 11 }[near] : 7;
-  const top = near === "library" ? "58%" : "35%";
+  const top = near === "library" ? "31%" : "35%";
   return (
     <>
       <AnimatePresence>
         {near && (
           <motion.div
             key={near}
-            className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded border-2 border-[#3a3a58] bg-[#f8f8fc] px-2 py-1 font-pixel text-[#2a2438]"
+            className={`pointer-events-none absolute z-10 -translate-x-1/2 ${near === "library" ? "" : "-translate-y-full"} whitespace-nowrap rounded border-2 border-[#3a3a58] bg-[#f8f8fc] px-2 py-1 font-pixel text-[#2a2438]`}
             style={{ left: `${((col * 16 + 8) / 240) * 100}%`, top, fontSize: "clamp(8px, 2.2cqw, 18px)" }}
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
@@ -188,7 +188,7 @@ function LabHud({ near }: { near: Spot | null }) {
         )}
       </AnimatePresence>
       <p className="pointer-events-none absolute inset-x-0 bottom-[1.5cqw] text-center font-pixel text-[#3a3a58]" style={{ fontSize: "clamp(7px, 1.9cqw, 16px)" }}>
-        Table: Poké Balls · Bookshelf: my passions
+        Table: Poké Balls · Hobbies shelf: my passions
       </p>
     </>
   );

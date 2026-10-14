@@ -26,7 +26,28 @@ export function drawWall(c: CanvasRenderingContext2D) {
   r(c, "#c4c1d6", 0, 32, COLS * TILE, 6); // ombra
 }
 
-export function drawShelf(c: CanvasRenderingContext2D, x: number, y: number, tw: number, th: number) {
+// Tiny 3x5 pixel letters, for signs
+const GLYPHS: Record<string, string[]> = {
+  H: ["101", "101", "111", "101", "101"],
+  O: ["111", "101", "101", "101", "111"],
+  B: ["110", "101", "110", "101", "110"],
+  I: ["111", "010", "010", "010", "111"],
+  E: ["111", "100", "110", "100", "111"],
+  S: ["111", "100", "111", "001", "111"],
+};
+
+export function drawTinyText(c: CanvasRenderingContext2D, text: string, x: number, y: number, color: string) {
+  c.fillStyle = color;
+  [...text].forEach((ch, i) => {
+    GLYPHS[ch]?.forEach((row, ry) => {
+      [...row].forEach((bit, rx) => {
+        if (bit === "1") c.fillRect(x + i * 4 + rx, y + ry, 1, 1);
+      });
+    });
+  });
+}
+
+export function drawShelf(c: CanvasRenderingContext2D, x: number, y: number, tw: number, th: number, label?: string) {
   const w = tw * TILE, h = th * TILE;
   r(c, "#6a6990", x, y, w, h);
   r(c, "#f6f6fb", x + 2, y + 1, w - 4, 11);
@@ -39,6 +60,14 @@ export function drawShelf(c: CanvasRenderingContext2D, x: number, y: number, tw:
     r(c, "#8c8aa8", x + 2, by + 7, w - 4, 1);
   }
   for (let i = 1; i < tw; i++) r(c, "#6a6990", x + i * TILE - 1, y, 2, h);
+  if (label) {
+    // a sign over the white panels
+    const tw2 = label.length * 4 - 1;
+    const sx = x + Math.floor((w - tw2) / 2);
+    r(c, "#bdb9d4", sx - 3, y + 2, tw2 + 6, 10);
+    r(c, "#f6f6fb", sx - 2, y + 3, tw2 + 4, 8);
+    drawTinyText(c, label, sx, y + 4, "#2a2438");
+  }
 }
 
 export function drawDesk(c: CanvasRenderingContext2D, x: number, y: number, w: number) {
@@ -174,7 +203,7 @@ export function drawBackdrop(ctx: CanvasRenderingContext2D) {
   drawBoard(ctx, 98, 2);
   drawBoard(ctx, 126, 2);
   drawWindow(ctx, 160, 2);
-  drawShelf(ctx, 192, 2, 3, 2);
+  drawShelf(ctx, 192, 2, 3, 2, "HOBBIES");
   drawMachine(ctx, 0, 48);
   drawTable(ctx, 6 * TILE, 4 * TILE, 3);
   drawShelf(ctx, 0, 7 * TILE, 3, 2);

@@ -24,8 +24,8 @@ block(3, 3, 1, 1); // rivale
 block(13, 6, 1, 1); // assistente
 const NPCS: Record<string, string> = { "4,2": "prof", "3,3": "rival", "13,6": "assistant", "0,3": "machine", "1,3": "machine", "0,4": "machine", "1,4": "machine" };
 
-// The big bookshelf at the bottom right (tiles 9-14, rows 7-8)
-const inLibrary = (c: number, r: number) => c >= 9 && c <= 14 && r >= 7 && r <= 8;
+// The "HOBBIES" bookshelf next to the window (tiles 12-14, rows 0-1)
+const inLibrary = (c: number, r: number) => c >= 12 && c <= 14 && r >= 0 && r <= 1;
 
 export type PlayerState = { tx: number; ty: number; dir: Dir };
 
@@ -110,7 +110,7 @@ export default function Overworld({ active, player, onNear, onBall, onLibrary, o
       const nearNow: Spot | null =
         !move && p.dir === "up" && p.ty === TABLE_ROW + 1
           ? (BALLS[p.tx] ?? null)
-          : !move && p.dir === "down" && inLibrary(p.tx, p.ty + 1)
+          : !move && p.dir === "up" && inLibrary(p.tx, p.ty - 1)
             ? "library"
             : null;
       if (nearNow !== near && activeRef.current) {
