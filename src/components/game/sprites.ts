@@ -5,6 +5,7 @@ export const COLS = 15;
 export const ROWS = 10;
 export type Dir = "up" | "down" | "left" | "right";
 export type BallId = "work" | "about" | "contact";
+export type Spot = BallId | "library";
 
 const r = (c: CanvasRenderingContext2D, col: string, x: number, y: number, w: number, h: number) => {
   c.fillStyle = col;

@@ -12,17 +12,18 @@ import WorkScreen from "./WorkScreen";
 import AboutScreen from "./AboutScreen";
 import ContactScreen from "./ContactScreen";
 import { DialogBox, useTypewriter } from "./ui";
-import type { BallId, Dir } from "./sprites";
+import LibraryScreen from "./LibraryScreen";
+import type { BallId, Dir, Spot } from "./sprites";
 
-type Scene = "title" | "pokedex" | "lab" | BallId;
+type Scene = "title" | "pokedex" | "lab" | Spot;
 
-const LABELS: Record<BallId, string> = { work: "MY WORK", about: "ABOUT ME", contact: "CONTACT" };
+const LABELS: Record<Spot, string> = { work: "MY WORK", about: "ABOUT ME", contact: "CONTACT", library: "LIBRARY" };
 const KEYS: Record<string, Dir> = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right" };
 
 export default function Game() {
   const [scene, setScene] = useState<Scene>("title");
   const [pending, setPending] = useState<BallId | null>(null);
-  const [near, setNear] = useState<BallId | null>(null);
+  const [near, setNear] = useState<Spot | null>(null);
   const [talk, setTalk] = useState<string[] | null>(null);
   const [talkIdx, setTalkIdx] = useState(0);
 
@@ -104,6 +105,11 @@ export default function Game() {
                   setNear(null);
                   setPending(id);
                 }}
+                onLibrary={() => {
+                  held.current = [];
+                  setNear(null);
+                  setScene("library");
+                }}
                 onTalk={(k) => {
                   held.current = [];
                   setTalkIdx(0);
@@ -127,11 +133,12 @@ export default function Game() {
                   <PokedexMessage onDone={() => setScene("lab")} />
                 </motion.div>
               )}
-              {(scene === "work" || scene === "about" || scene === "contact") && (
+              {(scene === "work" || scene === "about" || scene === "contact" || scene === "library") && (
                 <motion.div key={scene} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                   {scene === "work" && <WorkScreen onBack={back} />}
                   {scene === "about" && <AboutScreen onBack={back} />}
                   {scene === "contact" && <ContactScreen onBack={back} />}
+                  {scene === "library" && <LibraryScreen onBack={back} />}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -150,7 +157,7 @@ export default function Game() {
         <nav aria-label="Quick navigation" className="flex flex-wrap items-center justify-center gap-2 font-pixel text-[10px] text-[#c9d4f5]">
           <span className="hidden sm:inline">Arrows/WASD · Z or Enter = A · X or Esc = B</span>
           <span className="opacity-60">· Skip to:</span>
-          {(Object.keys(LABELS) as BallId[]).map((id) => (
+          {(Object.keys(LABELS) as Spot[]).map((id) => (
             <button key={id} onClick={(e) => { e.currentTarget.blur(); held.current = []; setTalk(null); setScene(id); }} className="rounded border border-[#5a6a9a] px-2 py-1 hover:bg-[#2a3552]">
               {LABELS[id]}
             </button>
@@ -161,8 +168,9 @@ export default function Game() {
   );
 }
 
-function LabHud({ near }: { near: BallId | null }) {
-  const col = near ? { work: 6, about: 7, contact: 8 }[near] : 7;
+function LabHud({ near }: { near: Spot | null }) {
+  const col = near ? { work: 6, about: 7, contact: 8, library: 11 }[near] : 7;
+  const top = near === "library" ? "58%" : "35%";
   return (
     <>
       <AnimatePresence>
@@ -170,7 +178,7 @@ function LabHud({ near }: { near: BallId | null }) {
           <motion.div
             key={near}
             className="pointer-events-none absolute z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded border-2 border-[#3a3a58] bg-[#f8f8fc] px-2 py-1 font-pixel text-[#2a2438]"
-            style={{ left: `${((col * 16 + 8) / 240) * 100}%`, top: "35%", fontSize: "clamp(8px, 2.2cqw, 18px)" }}
+            style={{ left: `${((col * 16 + 8) / 240) * 100}%`, top, fontSize: "clamp(8px, 2.2cqw, 18px)" }}
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
@@ -180,7 +188,7 @@ function LabHud({ near }: { near: BallId | null }) {
         )}
       </AnimatePresence>
       <p className="pointer-events-none absolute inset-x-0 bottom-[1.5cqw] text-center font-pixel text-[#3a3a58]" style={{ fontSize: "clamp(7px, 1.9cqw, 16px)" }}>
-        Walk up to the table with the 3 Poké Balls
+        Table: Poké Balls · Bookshelf: my passions
       </p>
     </>
   );

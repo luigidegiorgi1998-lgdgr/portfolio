@@ -243,3 +243,13 @@ export const NPC_LINES = {
   assistant: ["Assistant: The fastest portfolio in Kanto... and beyond."],
   machine: ["A mysterious machine. Better not touch it."],
 };
+
+// Library: each passion is a book, the cover carries the title.
+export const HOBBIES = [
+  { title: "Sport", cover: ["SPORT"], color: "#2f7d4f", ink: "#f4f2f8" },
+  { title: "Tech", cover: ["TECH"], color: "#2f5ea8", ink: "#f4f2f8" },
+  { title: "Music", cover: ["MUSIC"], color: "#7a3b8a", ink: "#f4f2f8" },
+  { title: "Breakdancing", cover: ["BREAK-", "DANCING"], color: "#d9622b", ink: "#2a2438" },
+  { title: "Cinema", cover: ["CINEMA"], color: "#a8222a", ink: "#f4f2f8" },
+  { title: "Food", cover: ["FOOD"], color: "#e0b02a", ink: "#2a2438" },
+];

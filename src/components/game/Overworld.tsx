@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { useGamepad } from "./controls";
-import { COLS, ROWS, TILE, drawBackdrop, drawBall, drawTrainer, type BallId, type Dir } from "./sprites";
+import { COLS, ROWS, TILE, drawBackdrop, drawBall, drawTrainer, type BallId, type Dir, type Spot } from "./sprites";
 
 const BALLS: Record<number, BallId> = { 6: "work", 7: "about", 8: "contact" };
 const TABLE_ROW = 4;
@@ -24,25 +24,29 @@ block(3, 3, 1, 1); // rivale
 block(13, 6, 1, 1); // assistente
 const NPCS: Record<string, string> = { "4,2": "prof", "3,3": "rival", "13,6": "assistant", "0,3": "machine", "1,3": "machine", "0,4": "machine", "1,4": "machine" };
 
+// The big bookshelf at the bottom right (tiles 9-14, rows 7-8)
+const inLibrary = (c: number, r: number) => c >= 9 && c <= 14 && r >= 7 && r <= 8;
+
 export type PlayerState = { tx: number; ty: number; dir: Dir };
 
 type Props = {
   active: boolean;
   player: { current: PlayerState };
-  onNear: (id: BallId | null) => void;
+  onNear: (id: Spot | null) => void;
   onBall: (id: BallId) => void;
+  onLibrary: () => void;
   onTalk: (key: string) => void;
 };
 
-export default function Overworld({ active, player, onNear, onBall, onTalk }: Props) {
+export default function Overworld({ active, player, onNear, onBall, onLibrary, onTalk }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const activeRef = useRef(active);
-  const cb = useRef({ onNear, onBall, onTalk });
+  const cb = useRef({ onNear, onBall, onLibrary, onTalk });
   const actionQueued = useRef(false);
 
   useEffect(() => {
     activeRef.current = active;
-    cb.current = { onNear, onBall, onTalk };
+    cb.current = { onNear, onBall, onLibrary, onTalk };
   });
 
   const pad = useGamepad({
@@ -67,7 +71,7 @@ export default function Overworld({ active, player, onNear, onBall, onTalk }: Pr
     let last = performance.now();
     let move: { fx: number; fy: number; t: number } | null = null;
     let steps = 0;
-    let near: BallId | null = null;
+    let near: Spot | null = null;
     const p = player.current;
 
     const frame = (now: number) => {
@@ -92,6 +96,7 @@ export default function Overworld({ active, player, onNear, onBall, onTalk }: Pr
             const [dx, dy] = DELTA[p.dir];
             const tx = p.tx + dx, ty = p.ty + dy;
             if (ty === TABLE_ROW && BALLS[tx]) cb.current.onBall(BALLS[tx]);
+            else if (inLibrary(tx, ty)) cb.current.onLibrary();
             else if (NPCS[`${tx},${ty}`]) cb.current.onTalk(NPCS[`${tx},${ty}`]);
           }
         }
@@ -102,7 +107,12 @@ export default function Overworld({ active, player, onNear, onBall, onTalk }: Pr
       }
       actionQueued.current = false;
 
-      const nearNow = !move && p.dir === "up" && p.ty === TABLE_ROW + 1 ? (BALLS[p.tx] ?? null) : null;
+      const nearNow: Spot | null =
+        !move && p.dir === "up" && p.ty === TABLE_ROW + 1
+          ? (BALLS[p.tx] ?? null)
+          : !move && p.dir === "down" && inLibrary(p.tx, p.ty + 1)
+            ? "library"
+            : null;
       if (nearNow !== near && activeRef.current) {
         near = nearNow;
         cb.current.onNear(near);
