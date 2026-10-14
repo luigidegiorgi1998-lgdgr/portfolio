@@ -55,8 +55,8 @@ export default function AboutScreen({ onBack }: { onBack: () => void }) {
             <ul className="space-y-[0.3cqw]">
               {STATS.map((s, i) => (
                 <li key={s.label} className="flex items-center gap-2">
-                  <span className="w-[52%] shrink-0 truncate">{s.label}</span>
-                  <span className="h-[1.3cqw] min-h-[5px] flex-1 rounded-full bg-[#b8c8e4]">
+                  <span className="shrink-0 whitespace-nowrap">{s.label}</span>
+                  <span className="ml-auto h-[1.3cqw] min-h-[5px] w-[34%] shrink rounded-full bg-[#b8c8e4]">
                     <motion.span className="block h-full rounded-full bg-[#2fb457]" initial={{ width: 0 }} animate={{ width: `${s.value}%` }} transition={{ delay: 0.3 + i * 0.08, duration: 0.7 }} />
                   </span>
                 </li>
