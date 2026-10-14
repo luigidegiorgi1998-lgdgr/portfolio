@@ -63,6 +63,7 @@ const ALL_PROJECTS: Project[] = [
       { src: "/images/mywork/mylocalguide-1.png", alt: "MyLocalGuide: onboarding" },
       { src: "/images/mywork/mylocalguide-2.png", alt: "MyLocalGuide: discover" },
       { src: "/images/mywork/mylocalguide-3.png", alt: "MyLocalGuide: checkout" },
+      { src: "/images/mywork/mylocalguide-system.png", alt: "MyLocalGuide design system: colours, typography, spacing, radius, shadows and components" },
     ],
   },
   {
@@ -86,7 +87,7 @@ const ALL_PROJECTS: Project[] = [
       "Three visual directions; I rejected a redesign that drifted from the original design system and rebuilt it with the existing components.",
     ],
     outcome:
-      "17 athlete screens, a coach panel with 10 web sections plus mobile equivalents, and a prototype with 436 links across three Figma pages. Design and features approved by the coaches; user trials come next. Accessibility gaps are documented (9-10px labels, tap targets under 44pt) to fix before a build.",
+      "17 athlete screens, a coach panel with 10 web sections plus mobile equivalents, and a prototype with 436 links across three Figma pages. The NoLimits team appreciated the design and the features a lot, and user testing is now being prepared. Accessibility gaps are documented (9-10px labels, tap targets under 44pt) to fix before a build.",
     imageNote:
       "The interface is in Italian because NoLimits' athletes and coaches are Italian-speaking. Captions are in English.",
     images: [
@@ -201,17 +202,17 @@ export const ROUTE = [
 
 // Stats (placeholder values to tweak, 0-100)
 export const STATS = [
-  { label: "Product", value: 82 },
-  { label: "Systems", value: 76 },
-  { label: "Prototype", value: 88 },
-  { label: "Research", value: 64 },
   { label: "Figma", value: 92 },
-  { label: "AI", value: 85 },
+  { label: "Vibecoding", value: 80 },
+  { label: "AI · Claude", value: 88 },
+  { label: "Design system", value: 76 },
+  { label: "Research", value: 64 },
+  { label: "Prototyping", value: 88 },
 ];
 
 export const CARD_FIELDS = [
   { label: "ROLE", value: "Designer" },
-  { label: "SINCE", value: "2018" },
+  { label: "SINCE", value: "2026" },
   { label: "PROJECTS", value: String(PROJECTS.length) },
 ];
 
