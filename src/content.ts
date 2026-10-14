@@ -244,12 +244,30 @@ export const NPC_LINES = {
   machine: ["A mysterious machine. Better not touch it."],
 };
 
-// Library: each passion is a book, the cover carries the title.
-export const HOBBIES = [
-  { title: "Sport", cover: ["SPORT"], color: "#2f7d4f", ink: "#f4f2f8" },
-  { title: "Tech", cover: ["TECH"], color: "#2f5ea8", ink: "#f4f2f8" },
-  { title: "Music", cover: ["MUSIC"], color: "#7a3b8a", ink: "#f4f2f8" },
-  { title: "Breakdancing", cover: ["BREAK-", "DANCING"], color: "#d9622b", ink: "#2a2438" },
-  { title: "Cinema", cover: ["CINEMA"], color: "#a8222a", ink: "#f4f2f8" },
-  { title: "Food", cover: ["FOOD"], color: "#e0b02a", ink: "#2a2438" },
+// Library: each passion is a book. The cover carries the title, the pages are photos and videos.
+// To add pages, drop the files in public/media/hobbies/<slug>/ and list them in `pages`.
+export type HobbyPage = {
+  type: "image" | "video";
+  src: string;
+  alt: string;
+  caption?: string;
+  /** Video only: a still shown before it plays. */
+  poster?: string;
+};
+
+export type Hobby = {
+  title: string;
+  cover: string[];
+  color: string;
+  ink: string;
+  pages: HobbyPage[];
+};
+
+export const HOBBIES: Hobby[] = [
+  { title: "Sport", cover: ["SPORT"], color: "#2f7d4f", ink: "#f4f2f8", pages: [] },
+  { title: "Tech", cover: ["TECH"], color: "#2f5ea8", ink: "#f4f2f8", pages: [] },
+  { title: "Music", cover: ["MUSIC"], color: "#7a3b8a", ink: "#f4f2f8", pages: [] },
+  { title: "Breakdancing", cover: ["BREAK-", "DANCING"], color: "#d9622b", ink: "#2a2438", pages: [] },
+  { title: "Cinema", cover: ["CINEMA"], color: "#a8222a", ink: "#f4f2f8", pages: [] },
+  { title: "Food", cover: ["FOOD"], color: "#e0b02a", ink: "#2a2438", pages: [] },
 ];
