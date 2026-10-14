@@ -33,16 +33,20 @@ export default function LibraryScreen({ onBack }: { onBack: () => void }) {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0); // 0 = cover, 1..n = the book's pages
   const [dir, setDir] = useState(1); // direction of the last page turn
-  const [cols, setCols] = useState(3);
+  const [cols, setCols] = useState(4);
   const grid = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const el = grid.current;
     if (!el) return;
-    const ro = new ResizeObserver(() => setCols(el.clientWidth >= 520 ? 3 : 2));
+    const ro = new ResizeObserver(() => setCols(el.clientWidth >= 520 ? 4 : 2));
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
+
+  useEffect(() => {
+    grid.current?.children[sel]?.scrollIntoView({ block: "nearest" });
+  }, [sel]);
 
   const n = HOBBIES.length;
   const cur = HOBBIES[sel];
@@ -80,9 +84,9 @@ export default function LibraryScreen({ onBack }: { onBack: () => void }) {
     <div className="absolute inset-0 flex flex-col font-pixel text-[#f4f2f8]" style={{ background: "repeating-linear-gradient(90deg,#4a3324 0 2.4cqw,#3f2b1e 2.4cqw 4.8cqw)" }}>
       <p className="px-[3cqw] pt-[2.5cqw]" style={{ fontSize: "clamp(8px, 2cqw, 18px)" }}>LIBRARY · MY PASSIONS</p>
 
-      <ul ref={grid} className="grid flex-1 grid-cols-2 content-center gap-x-[3cqw] gap-y-[4.5cqw] px-[4cqw] pb-[3cqw] pt-[4.5cqw] @lg:grid-cols-3" role="listbox" aria-label="My passions">
+      <ul ref={grid} className="grid min-h-0 flex-1 grid-cols-2 content-start gap-x-[3cqw] gap-y-[4.5cqw] overflow-y-auto px-[4cqw] pb-[3cqw] pt-[4.5cqw] @lg:grid-cols-4" role="listbox" aria-label="My passions">
         {HOBBIES.map((h, i) => (
-          <li key={h.title} role="none" className="relative mx-auto aspect-[3/4] w-[58%] max-w-[170px] @lg:w-[46%]">
+          <li key={h.title} role="none" className="relative mx-auto aspect-[3/4] w-[58%] max-w-[170px] @lg:w-[62%]">
             <motion.button
               role="option"
               aria-selected={sel === i}

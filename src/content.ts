@@ -264,6 +264,24 @@ export type Hobby = {
 };
 
 export const HOBBIES: Hobby[] = [
+  {
+    title: "Travel",
+    cover: ["TRAVEL"],
+    color: "#1f8a8a",
+    ink: "#f4f2f8",
+    pages: [
+      { type: "image", src: "/media/hobbies/travel/barcelona.jpg", alt: "Barcelona", caption: "Barcelona" },
+      { type: "video", src: "/media/hobbies/travel/niagara-falls.mp4", poster: "/media/hobbies/travel/niagara-falls-poster.jpg", alt: "Niagara Falls", caption: "Niagara Falls" },
+      { type: "image", src: "/media/hobbies/travel/bangkok.jpg", alt: "Bangkok", caption: "Bangkok" },
+      { type: "image", src: "/media/hobbies/travel/mexico-city.jpg", alt: "Mexico City", caption: "Mexico City" },
+      { type: "image", src: "/media/hobbies/travel/los-angeles.jpg", alt: "Los Angeles", caption: "Los Angeles" },
+      { type: "image", src: "/media/hobbies/travel/paris.jpg", alt: "Paris", caption: "Paris" },
+      { type: "image", src: "/media/hobbies/travel/toronto.jpg", alt: "Toronto", caption: "Toronto" },
+      { type: "image", src: "/media/hobbies/travel/philadelphia.jpg", alt: "Philadelphia", caption: "Philadelphia" },
+      { type: "image", src: "/media/hobbies/travel/ko-samui.jpg", alt: "Ko Samui", caption: "Ko Samui" },
+      { type: "image", src: "/media/hobbies/travel/new-york.jpg", alt: "New York", caption: "New York" },
+    ],
+  },
   { title: "Sport", cover: ["SPORT"], color: "#2f7d4f", ink: "#f4f2f8", pages: [] },
   { title: "Tech", cover: ["TECH"], color: "#2f5ea8", ink: "#f4f2f8", pages: [] },
   { title: "Music", cover: ["MUSIC"], color: "#7a3b8a", ink: "#f4f2f8", pages: [] },
