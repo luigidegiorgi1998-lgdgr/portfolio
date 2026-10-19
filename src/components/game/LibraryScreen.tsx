@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { HOBBIES, type Hobby } from "@/content";
+import { HOBBIES, type Hobby, type HobbyIntro } from "@/content";
 import { useGamepad } from "./controls";
 import { CancelButton } from "./ui";
 
@@ -50,7 +50,11 @@ export default function LibraryScreen({ onBack }: { onBack: () => void }) {
 
   const n = HOBBIES.length;
   const cur = HOBBIES[sel];
-  const total = cur.pages.length; // pages after the cover
+  // On wide screens the intro sits on the left of the spread; on narrow ones it is the first page after the cover.
+  const wide = cols >= 4;
+  const intro = cur.intro;
+  const sheets = !wide && intro ? [intro, ...cur.pages] : cur.pages;
+  const total = sheets.length; // pages after the cover
 
   const openBook = () => {
     setDir(1);
@@ -125,6 +129,12 @@ export default function LibraryScreen({ onBack }: { onBack: () => void }) {
             <div className="flex w-full items-center justify-center gap-[2cqw] px-[2cqw]">
               <PageButton label="Previous page" disabled={page === 0} onClick={() => turn(-1)}>◀</PageButton>
 
+              {wide && intro && page > 0 && (
+                <div className="relative aspect-[3/4] w-[30cqw] max-w-[360px]">
+                  <IntroSheet intro={intro} />
+                </div>
+              )}
+
               <div className="relative aspect-[3/4] w-[52cqw] max-w-[360px] @lg:w-[30cqw]" style={{ perspective: 1000 }}>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.div
@@ -136,7 +146,7 @@ export default function LibraryScreen({ onBack }: { onBack: () => void }) {
                     exit={{ rotateY: dir > 0 ? -80 : 80, opacity: 0 }}
                     transition={{ duration: 0.25 }}
                   >
-                    {page === 0 ? <Cover h={cur} big /> : <Sheet p={cur.pages[page - 1]} />}
+                    {page === 0 ? <Cover h={cur} big /> : "text" in sheets[page - 1] ? <IntroSheet intro={sheets[page - 1] as HobbyIntro} /> : <Sheet p={sheets[page - 1] as Hobby["pages"][number]} />}
                   </motion.div>
                 </AnimatePresence>
               </div>
@@ -196,6 +206,24 @@ function Sheet({ p }: { p: Hobby["pages"][number] }) {
         <p className="font-sans leading-snug text-[#2a2438]" style={{ fontSize: "clamp(10px, 1.5cqw, 14px)" }}>
           {p.caption}
         </p>
+      )}
+    </div>
+  );
+}
+
+/** A text-only page on cream paper (the book's intro line and list). */
+function IntroSheet({ intro }: { intro: HobbyIntro }) {
+  return (
+    <div className="flex h-full w-full flex-col justify-center gap-[2cqw] overflow-hidden rounded-[0.6cqw] border-[0.35cqw] border-black/30 bg-[#f4ecd2] p-[3cqw] text-[#2a2438] shadow-[0.8cqw_0.8cqw_0_rgba(0,0,0,0.35)]">
+      <p className="font-sans font-semibold leading-snug" style={{ fontSize: "clamp(12px, 2cqw, 20px)" }}>
+        {intro.text}
+      </p>
+      {intro.items && (
+        <ul className="flex flex-col gap-[0.8cqw]" style={{ fontSize: "clamp(9px, 1.6cqw, 15px)" }}>
+          {intro.items.map((it) => (
+            <li key={it}>▸ {it.toUpperCase()}</li>
+          ))}
+        </ul>
       )}
     </div>
   );

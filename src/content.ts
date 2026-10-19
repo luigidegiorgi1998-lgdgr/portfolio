@@ -255,8 +255,11 @@ export type HobbyPage = {
   poster?: string;
 };
 
+/** Text page shown on the left of the spread (or right after the cover on narrow screens). */
+export type HobbyIntro = { text: string; items?: string[] };
 export type Hobby = {
   title: string;
+  intro?: HobbyIntro;
   cover: string[];
   color: string;
   ink: string;
@@ -284,5 +287,30 @@ export const HOBBIES: Hobby[] = [
   },
   { title: "Sport", cover: ["SPORT"], color: "#2f7d4f", ink: "#f4f2f8", pages: [] },
   { title: "Music", cover: ["MUSIC"], color: "#7a3b8a", ink: "#f4f2f8", pages: [] },
-  { title: "Food", cover: ["FOOD"], color: "#e0b02a", ink: "#2a2438", pages: [] },
+  {
+    title: "Food",
+    cover: ["FOOD"],
+    color: "#e0b02a",
+    ink: "#2a2438",
+    intro: {
+      text: "A dump of my favorite cuisines of the world, such as:",
+      items: ["Italian", "Mexican", "Thai", "Korean", "Japanese", "Lebanese"],
+    },
+    pages: [
+      { type: "image", src: "/media/hobbies/food/coffee.jpg", alt: "Coffee", caption: "Coffee" },
+      { type: "image", src: "/media/hobbies/food/french-toast.jpg", alt: "French toast", caption: "French toast" },
+      { type: "image", src: "/media/hobbies/food/paella.jpg", alt: "Paella", caption: "Paella" },
+      { type: "image", src: "/media/hobbies/food/tagliata.jpg", alt: "Tagliata", caption: "Tagliata" },
+      { type: "image", src: "/media/hobbies/food/gnocco-fritto.jpg", alt: "Gnocco fritto & cured meats", caption: "Gnocco fritto & cured meats" },
+      { type: "image", src: "/media/hobbies/food/pho.jpg", alt: "Pho", caption: "Pho" },
+      { type: "image", src: "/media/hobbies/food/unagi-yakitori.jpg", alt: "Unagi & yakitori", caption: "Unagi & yakitori" },
+      { type: "image", src: "/media/hobbies/food/lasagna.jpg", alt: "Lasagna", caption: "Lasagna" },
+      { type: "image", src: "/media/hobbies/food/shawarma.jpg", alt: "Shawarma plate", caption: "Shawarma plate" },
+      { type: "image", src: "/media/hobbies/food/tacos.jpg", alt: "Tacos", caption: "Tacos" },
+      { type: "image", src: "/media/hobbies/food/bbq.jpg", alt: "Barbecue", caption: "Barbecue" },
+      { type: "image", src: "/media/hobbies/food/gyros.jpg", alt: "Gyros & spanakopita", caption: "Gyros & spanakopita" },
+      { type: "image", src: "/media/hobbies/food/oatmeal.jpg", alt: "Oatmeal bowl", caption: "Oatmeal bowl" },
+      { type: "image", src: "/media/hobbies/food/korean-bbq.jpg", alt: "Korean BBQ", caption: "Korean BBQ" },
+    ],
+  },
 ];
