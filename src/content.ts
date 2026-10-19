@@ -255,8 +255,8 @@ export type HobbyPage = {
   poster?: string;
 };
 
-/** Text page shown on the left of the spread (or right after the cover on narrow screens). */
-export type HobbyIntro = { text: string; items?: string[] };
+/** A sentence on a text page: on the left of the spread on wide screens, right after the cover on narrow ones. */
+export type HobbyIntro = { text: string };
 export type Hobby = {
   title: string;
   intro?: HobbyIntro;
@@ -293,8 +293,7 @@ export const HOBBIES: Hobby[] = [
     color: "#e0b02a",
     ink: "#2a2438",
     intro: {
-      text: "A dump of my favorite cuisines of the world, such as:",
-      items: ["Italian", "Mexican", "Thai", "Korean", "Japanese", "Lebanese"],
+      text: "A dump of my favorite cuisines of the world, such as Italian, Mexican, Thai, Korean, Japanese, Lebanese and many more.",
     },
     pages: [
       { type: "image", src: "/media/hobbies/food/coffee.jpg", alt: "Coffee", caption: "Coffee" },

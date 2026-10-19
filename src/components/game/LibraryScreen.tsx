@@ -211,20 +211,13 @@ function Sheet({ p }: { p: Hobby["pages"][number] }) {
   );
 }
 
-/** A text-only page on cream paper (the book's intro line and list). */
+/** A text-only page on cream paper (the book's intro sentence). */
 function IntroSheet({ intro }: { intro: HobbyIntro }) {
   return (
     <div className="flex h-full w-full flex-col justify-center gap-[2cqw] overflow-hidden rounded-[0.6cqw] border-[0.35cqw] border-black/30 bg-[#f4ecd2] p-[3cqw] text-[#2a2438] shadow-[0.8cqw_0.8cqw_0_rgba(0,0,0,0.35)]">
       <p className="font-sans font-semibold leading-snug" style={{ fontSize: "clamp(12px, 2cqw, 20px)" }}>
         {intro.text}
       </p>
-      {intro.items && (
-        <ul className="flex flex-col gap-[0.8cqw]" style={{ fontSize: "clamp(9px, 1.6cqw, 15px)" }}>
-          {intro.items.map((it) => (
-            <li key={it}>▸ {it.toUpperCase()}</li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 }
