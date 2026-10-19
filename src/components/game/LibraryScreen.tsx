@@ -84,7 +84,7 @@ export default function LibraryScreen({ onBack }: { onBack: () => void }) {
     <div className="absolute inset-0 flex flex-col font-pixel text-[#f4f2f8]" style={{ background: "repeating-linear-gradient(90deg,#4a3324 0 2.4cqw,#3f2b1e 2.4cqw 4.8cqw)" }}>
       <p className="px-[3cqw] pt-[2.5cqw]" style={{ fontSize: "clamp(8px, 2cqw, 18px)" }}>LIBRARY · MY PASSIONS</p>
 
-      <ul ref={grid} className="grid min-h-0 flex-1 grid-cols-2 content-start gap-x-[3cqw] gap-y-[4.5cqw] overflow-y-auto px-[4cqw] pb-[3cqw] pt-[4.5cqw] @lg:grid-cols-4" role="listbox" aria-label="My passions">
+      <ul ref={grid} className="grid min-h-0 flex-1 grid-cols-2 [align-content:safe_center] gap-x-[3cqw] gap-y-[4.5cqw] overflow-y-auto px-[4cqw] pb-[3cqw] pt-[4.5cqw] @lg:grid-cols-4" role="listbox" aria-label="My passions">
         {HOBBIES.map((h, i) => (
           <li key={h.title} role="none" className="relative mx-auto aspect-[3/4] w-[58%] max-w-[170px] @lg:w-[62%]">
             <motion.button

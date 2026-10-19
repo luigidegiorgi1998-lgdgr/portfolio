@@ -283,9 +283,6 @@ export const HOBBIES: Hobby[] = [
     ],
   },
   { title: "Sport", cover: ["SPORT"], color: "#2f7d4f", ink: "#f4f2f8", pages: [] },
-  { title: "Tech", cover: ["TECH"], color: "#2f5ea8", ink: "#f4f2f8", pages: [] },
   { title: "Music", cover: ["MUSIC"], color: "#7a3b8a", ink: "#f4f2f8", pages: [] },
-  { title: "Breakdancing", cover: ["BREAK-", "DANCING"], color: "#d9622b", ink: "#2a2438", pages: [] },
-  { title: "Cinema", cover: ["CINEMA"], color: "#a8222a", ink: "#f4f2f8", pages: [] },
   { title: "Food", cover: ["FOOD"], color: "#e0b02a", ink: "#2a2438", pages: [] },
 ];
