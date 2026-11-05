@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fenwick — Case study · Luigi De Giorgi</title>
+<meta name="description" content="Expense-approval tool for a Stockholm scale-up, built as a working prototype.">
+<meta property="og:title" content="Fenwick — Case study · Luigi De Giorgi"><meta property="og:description" content="Expense-approval tool for a Stockholm scale-up, built as a working prototype.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://portfolio-ldg-product-designer.vercel.app/fenwick"><link rel="canonical" href="https://portfolio-ldg-product-designer.vercel.app/fenwick">
+<meta property="og:image" content="https://portfolio-ldg-product-designer.vercel.app/opengraph-image"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/img/coin.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;background:#0b0a10}
+a{color:#ffc46b}a:hover{color:#ffffff}
+</style>
+
+<style>*{box-sizing:border-box}img{max-width:100%}@media (max-width:640px){header,section>div{padding-left:16px!important;padding-right:16px!important}}</style>
+</head>
+<body>
+<div style="background: #0b0a10; color: #f5f1e8; font-family: Geist, 'Helvetica Neue', Arial, sans-serif; min-height: 100vh">
+
+  <header style="max-width: 1200px; margin: 0 auto; padding: 24px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+    <a href="/" style="font-family: Silkscreen, 'Courier New', monospace; font-size: 20px; font-weight: 700; color: #f5f1e8; text-decoration: none">LDG</a>
+    <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+      <a href="/" style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; color: #aaa4b6; text-decoration: none; padding: 12px 14px">← All work</a>
+      <a href="/play" style="font-family: Silkscreen, 'Courier New', monospace; font-size: 15px; color: #0b0a10; background: #ffa21f; text-decoration: none; padding: 12px 18px; box-shadow: 4px 4px 0 #b4360f">▶ Play</a>
+    </nav>
+  </header>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 48px 32px 48px; display: flex; flex-direction: column; gap: 22px">
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+      <span style="font-family: Silkscreen, monospace; font-size: 12px; color: #ffe14a; border: 1px solid #7d6c12; padding: 3px 8px">Concept</span>
+      <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #aaa4b6">Case study · B2B SaaS internal tool</span>
+    </div>
+    <h1 style="margin: 0; font-family: Silkscreen, 'Courier New', monospace; font-weight: 700; font-size: clamp(52px, 9vw, 120px); line-height: 0.95; text-shadow: 6px 6px 0 #ff4f8b">Fenwick</h1>
+    <p style="margin: 0; max-width: 44ch; font-size: 24px; line-height: 1.45; text-wrap: balance">An expense-approval tool for a 200-person scale-up, designed for managers who approve requests several times a day.</p>
+  </section>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 0 32px">
+    <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 2px; background: #2e2a39; border: 2px solid #2e2a39">
+      <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+        <dt style="font-family: Silkscreen, monospace; font-size: 11px; color: #aaa4b6">Role</dt>
+        <dd style="margin: 0; font-size: 16px; line-height: 1.45">Product designer and prototype build, solo</dd>
+      </div>
+      <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+        <dt style="font-family: Silkscreen, monospace; font-size: 11px; color: #aaa4b6">Company</dt>
+        <dd style="margin: 0; font-size: 16px; line-height: 1.45">Fenwick (fictional) · Stockholm, London, Berlin</dd>
+      </div>
+      <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+        <dt style="font-family: Silkscreen, monospace; font-size: 11px; color: #aaa4b6">Timeline</dt>
+        <dd style="margin: 0; font-size: 16px; line-height: 1.45">Aug 2026</dd>
+      </div>
+      <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+        <dt style="font-family: Silkscreen, monospace; font-size: 11px; color: #aaa4b6">Platform</dt>
+        <dd style="margin: 0; font-size: 16px; line-height: 1.45">Internal web app, light and dark mode</dd>
+      </div>
+      <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+        <dt style="font-family: Silkscreen, monospace; font-size: 11px; color: #aaa4b6">Stack</dt>
+        <dd style="margin: 0; font-size: 16px; line-height: 1.45">Figma · React · Claude Code · Vercel</dd>
+      </div>
+      <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px">
+        <dt style="font-family: Silkscreen, monospace; font-size: 11px; color: #aaa4b6">Status</dt>
+        <dd style="margin: 0; font-size: 16px; line-height: 1.45"><a href="https://fenwick-expense-tool-ldg.vercel.app" style="color: #ffc46b">Live prototype ↗</a></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 0">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+      <img src="/img/fw_hero.jpg" alt="Fenwick manager queue in dark and light mode" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 2px solid #2e2a39">
+      <figcaption style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #aaa4b6">The manager's request queue, light and dark mode.</figcaption>
+    </figure>
+  </section>
+
+  <section style="max-width: 1200px; margin: 0 auto; padding: 88px 32px; display: flex; flex-direction: column; gap: 14px">
+    <span style="font-family: 'Geist Mono', monospace; font-size: 14px; color: #aaa4b6">The brief</span>
+    <p style="margin: 0; max-width: 28ch; font-size: clamp(30px, 3.6vw, 46px); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; text-wrap: balance">Approvals took <span style="color: #ffa21f">4 days</span> on average, and <span style="color: #ffa21f">15%</span> of requests got lost in Slack threads.</p>
+  </section>
+
+  <section style="border-top: 2px solid #2e2a39">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px">
+      <h2 style="margin: 0; font-family: Silkscreen, 'Courier New', monospace; font-size: 30px; font-weight: 700">The problem</h2>
+      <div style="display: flex; flex-direction: column; gap: 18px; max-width: 62ch">
+        <p style="margin: 0; font-size: 18px; line-height: 1.65; color: #d3cede">Fenwick grew from 60 to 200 people in 18 months, with teams in Stockholm, London and Berlin. Expense approvals still worked the way they did at 60 people: requests on Slack, shared spreadsheets, approvals by email.</p>
+        <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.55; color: #d3cede">
+          <li>Managers only saw their team's remaining budget in finance's monthly report, often after it was already spent.</li>
+          <li>At the end of a quarter, a manager could have 50 or more requests waiting.</li>
+          <li>A suite like SAP Concur would take months to set up and an IT team Fenwick doesn't have.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 2px solid #2e2a39">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px; display: flex; flex-direction: column; gap: 56px">
+      <h2 style="margin: 0; font-family: Silkscreen, 'Courier New', monospace; font-size: 30px; font-weight: 700">Key decisions</h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: center">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; gap: 10px; align-items: center">
+            <span aria-hidden="true" style="width: 16px; height: 16px; background: #3ee6d2; box-shadow: inset -3px -3px 0 rgba(0,0,0,0.35), inset 3px 3px 0 rgba(255,255,255,0.35)"></span>
+            <span style="font-family: Silkscreen, monospace; font-size: 12px; color: #aaa4b6">Decision</span>
+          </div>
+          <h3 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25">Show the budget next to the request</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede">A manager who sees "€212" on its own decides differently from one who sees "€212, and the team is already at 69% of its monthly budget". The request detail shows the team's remaining budget with a progress bar, plus the requester's history, so the decision happens in one place.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede"><span style="color: #ffa21f; font-weight: 600">Why:</span> it turns a mechanical approval into an informed decision, without opening another tool.</p>
+        </div>
+        <img src="/img/fw_d1.jpg" alt="Request detail with the remaining team budget bar and the approve, request info and reject actions" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #2e2a39">
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: center">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; gap: 10px; align-items: center">
+            <span aria-hidden="true" style="width: 16px; height: 16px; background: #ffe14a; box-shadow: inset -3px -3px 0 rgba(0,0,0,0.35), inset 3px 3px 0 rgba(255,255,255,0.35)"></span>
+            <span style="font-family: Silkscreen, monospace; font-size: 12px; color: #aaa4b6">Decision</span>
+          </div>
+          <h3 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25">Three actions, always visible</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede">Approve, Request info and Reject are three fixed buttons, not a dropdown. "Request info" doesn't create a new screen: the request goes back into the same queue with a badge. Over-budget approvals don't close immediately; they move to a separate Finance queue for the final yes or no, and both the employee and the manager hear the outcome.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede"><span style="color: #ffa21f; font-weight: 600">Why:</span> for someone doing this five times a day, every hidden click adds up.</p>
+        </div>
+        <img src="/img/fw_d2.jpg" alt="Queue after asking for more info: the request is tagged and a confirmation appears" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #2e2a39">
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: center">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; gap: 10px; align-items: center">
+            <span aria-hidden="true" style="width: 16px; height: 16px; background: #ff4f8b; box-shadow: inset -3px -3px 0 rgba(0,0,0,0.35), inset 3px 3px 0 rgba(255,255,255,0.35)"></span>
+            <span style="font-family: Silkscreen, monospace; font-size: 12px; color: #aaa4b6">Decision</span>
+          </div>
+          <h3 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25">Work with Slack, not against it</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede">I ruled out two options: no indicator at all, and a full notification centre. The first risked missed updates for managers who open the tool rarely. The second would have turned Fenwick into a second Slack. A bell with a counter says "something changed" and nothing more.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede"><span style="color: #ffa21f; font-weight: 600">Why:</span> notifications stay where the team already talks; the action happens in the tool.</p>
+        </div>
+        <img src="/img/fw_d3.jpg" alt="Header with the notification bell and its unread counter" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #2e2a39">
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px; align-items: center">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; gap: 10px; align-items: center">
+            <span aria-hidden="true" style="width: 16px; height: 16px; background: #7ad33a; box-shadow: inset -3px -3px 0 rgba(0,0,0,0.35), inset 3px 3px 0 rgba(255,255,255,0.35)"></span>
+            <span style="font-family: Silkscreen, monospace; font-size: 12px; color: #aaa4b6">Decision</span>
+          </div>
+          <h3 style="margin: 0; font-size: 26px; font-weight: 600; line-height: 1.25">Built for a queue of 50, not for one request</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede">Three summary numbers at the top (waiting, total amount, over budget), then a table instead of cards, so amounts compare at a glance. "Urgent" and "Over budget" are always-visible filters, because they're what a manager checks first. The copy does its part too: an empty queue says "Queue clear", errors say exactly what went wrong, and dates are relative only within the last week.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede"><span style="color: #ffa21f; font-weight: 600">Why:</span> a power user needs speed on the hundredth visit, not guidance on the first.</p>
+        </div>
+        <img src="/img/fw_d4.jpg" alt="Queue filtered to over-budget requests, and the empty queue state" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 2px solid #2e2a39">
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 2px solid #2e2a39">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px; display: flex; flex-direction: column; gap: 28px">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: baseline">
+        <h2 style="margin: 0; font-family: Silkscreen, 'Courier New', monospace; font-size: 30px; font-weight: 700">Results</h2>
+        <p style="margin: 0; font-family: 'Geist Mono', monospace; font-size: 14px; color: #aaa4b6">A concept: targets, not measurements</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px">
+        <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; border: 2px solid #2e2a39; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: Silkscreen, monospace; font-size: 40px; color: #ffa21f; text-shadow: 0 0 12px rgba(255,162,31,0.45)">Live</span>
+          <span style="font-size: 15px; line-height: 1.45; color: #d3cede">Working prototype: approve a request and watch the queue update, no reload</span>
+        </div>
+        <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; border: 2px solid #2e2a39; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: Silkscreen, monospace; font-size: 40px; color: #ffa21f; text-shadow: 0 0 12px rgba(255,162,31,0.45)">2 roles</span>
+          <span style="font-size: 15px; line-height: 1.45; color: #d3cede">Manager and Finance, each with its own queue and request history</span>
+        </div>
+        <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; border: 2px solid #2e2a39; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: Silkscreen, monospace; font-size: 40px; color: #ffa21f; text-shadow: 0 0 12px rgba(255,162,31,0.45)">2 palettes</span>
+          <span style="font-size: 15px; line-height: 1.45; color: #d3cede">Compared live in the prototype before choosing the double accent</span>
+        </div>
+        <div style="background-color: #15131c; background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1.5px); background-size: 4px 4px; border: 2px solid #2e2a39; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: Silkscreen, monospace; font-size: 40px; color: #ffa21f; text-shadow: 0 0 12px rgba(255,162,31,0.45)">&lt; 24 h</span>
+          <span style="font-size: 15px; line-height: 1.45; color: #d3cede">Target approval time, down from 4 days in the brief</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 2px solid #2e2a39">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px">
+      <h2 style="margin: 0; font-family: Silkscreen, 'Courier New', monospace; font-size: 30px; font-weight: 700">What I'd do next</h2>
+      <div style="display: flex; flex-direction: column; gap: 18px; max-width: 62ch">
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #d3cede">The limit I'd fix first: the budget bar assumes the accounting system updates in real time. In a real company that takes weeks of work with engineering. Next time I'd ask the data team how realistic that number is before designing a whole screen around it.</p>
+        <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.55; color: #d3cede">
+          <li>The employee side: submitting a request, which is still static.</li>
+          <li>Reporting for the finance team, beyond the request history.</li>
+          <li>A second approval level for very large amounts.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 2px solid #2e2a39">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 56px 32px 88px">
+      <a href="/mylocalguide" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; background: #15131c; border: 2px solid #2e2a39; box-shadow: 6px 6px 0 #7ad33a; padding: 28px 32px; text-decoration: none; color: #f5f1e8">
+        <span style="font-family: Silkscreen, monospace; font-size: 13px; color: #aaa4b6">Next level</span>
+        <span style="font-family: Silkscreen, monospace; font-size: 34px; font-weight: 700">MyLocalGuide →</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

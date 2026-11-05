@@ -14,10 +14,10 @@ const inter = Inter({
   weight: ["400", "600"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-ldg-product-designer.vercel.app";
 const SITE_NAME = "Luigi De Giorgi — Product Designer";
 const SITE_DESCRIPTION =
-  "Interactive portfolio of Luigi De Giorgi, product designer: mechanic to barista to designer. Explore the lab and pick a Poké Ball.";
+  "Product designer in Valencia: mobile apps, e-commerce and B2B dashboards, designed and built for real clients.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -1,5 +1,7 @@
 # Luigi De Giorgi — Portfolio
 
+**Portfolio v2.** The home page and the four case studies (NoLimits, MIRA, Fenwick, MyLocalGuide) are static pages in `public/` (`home.html`, `nolimits.html`, …), served at `/`, `/nolimits`, `/mira`, `/fenwick` and `/mylocalguide` through the rewrites in `next.config.ts`. Images are in `public/img/`, the falling-block hero and the coin slot in `public/game.js`. The interactive game described below now lives at **`/play`**.
+
 An interactive, Pokémon-style product design portfolio. Next.js (App Router) + TypeScript + Tailwind CSS v4 + Framer Motion. Everything lives on one page (`/`).
 
 ## How it works
