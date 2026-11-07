@@ -14,7 +14,7 @@ const inter = Inter({
   weight: ["400", "600"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-ldg-product-designer.vercel.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://degidesign.com";
 const SITE_NAME = "Luigi De Giorgi — Product Designer";
 const SITE_DESCRIPTION =
   "Product designer in Valencia: mobile apps, e-commerce and B2B dashboards, designed and built for real clients.";
