@@ -104,9 +104,10 @@ export function drawBall(c: CanvasRenderingContext2D, cx: number, cy: number, op
       const d = x * x + y * y;
       if (d > 38) continue;
       const rim = d > 28;
-      c.fillStyle = rim ? "#2a2438" : y < 0 ? (opened ? "#a8a4b8" : "#d63a2e") : "#f4f2f8";
-      if (!rim && y === -1) c.fillStyle = "#2a2438";
-      if (!rim && y < -2 && x < -1 && x > -4 && !opened) c.fillStyle = "#f2796a";
+      // Arcade token: gold coin with an inner ring (grey once picked)
+      const ring = d >= 12 && d <= 18;
+      c.fillStyle = rim ? "#2a2438" : opened ? (ring ? "#8a869a" : "#a8a4b8") : ring ? "#b4360f" : x + y > 3 ? "#d9831a" : "#ffa21f";
+      if (!rim && !opened && y < -2 && x < -1 && x > -4) c.fillStyle = "#ffe14a";
       c.fillRect(cx + x, cy + y, 1, 1);
     }
   r(c, "#2a2438", cx - 1, cy - 2, 3, 4);

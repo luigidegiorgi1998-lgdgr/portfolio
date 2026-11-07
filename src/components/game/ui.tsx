@@ -41,14 +41,15 @@ export function DialogBox({ text, done, className = "" }: { text: string; done: 
   );
 }
 
-export function PokeballIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
+/** Arcade token: the "pick one" object of the game. */
+export function TokenIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
     <span
       className={`relative inline-block shrink-0 rounded-full border-2 border-[#2a2438] ${className}`}
-      style={{ width: size, height: size, background: "linear-gradient(#e0453a 0 46%, #2a2438 46% 54%, #f4f2f8 54%)" }}
+      style={{ width: size, height: size, background: "#ffa21f", boxShadow: "inset -3px -3px 0 #b4360f" }}
       aria-hidden
     >
-      <span className="absolute left-1/2 top-1/2 h-[28%] w-[28%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#2a2438] bg-[#f4f2f8]" />
+      <span className="absolute left-1/2 top-1/2 h-[56%] w-[56%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#b4360f]" />
     </span>
   );
 }

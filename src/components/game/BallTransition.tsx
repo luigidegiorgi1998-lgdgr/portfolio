@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-/** The Poké Ball opens and a white flash covers the screen, then the scene changes. */
+/** The token splits open and a white flash covers the screen, then the scene changes. */
 export default function BallTransition({ onMid, onDone }: { onMid: () => void; onDone: () => void }) {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -25,9 +25,9 @@ export default function BallTransition({ onMid, onDone }: { onMid: () => void; o
         animate={{ scale: [0.3, 1, 1, 1, 6], rotate: [0, 0, -18, 18, 0] }}
         transition={{ duration: 1.1, times: [0, 0.25, 0.45, 0.65, 1], ease: "easeInOut" }}
       >
-        <motion.div className={`${half} top-0 bg-[#e0453a]`} animate={{ y: ["0%", "0%", "-70%"] }} transition={{ delay: 0.55, duration: 0.35 }} />
-        <motion.div className={`${half} bottom-0 bg-[#f4f2f8]`} animate={{ y: ["0%", "0%", "70%"] }} transition={{ delay: 0.55, duration: 0.35 }} />
-        <span className="absolute left-1/2 top-1/2 h-[26%] w-[26%] -translate-x-1/2 -translate-y-1/2 rounded-full border-[0.8cqw] border-[#2a2438] bg-[#f4f2f8]" />
+        <motion.div className={`${half} top-0 bg-[#ffa21f]`} animate={{ y: ["0%", "0%", "-70%"] }} transition={{ delay: 0.55, duration: 0.35 }} />
+        <motion.div className={`${half} bottom-0 bg-[#b4360f]`} animate={{ y: ["0%", "0%", "70%"] }} transition={{ delay: 0.55, duration: 0.35 }} />
+        <span className="absolute left-1/2 top-1/2 h-[26%] w-[26%] -translate-x-1/2 -translate-y-1/2 rounded-full border-[0.8cqw] border-[#2a2438] bg-[#ffe14a]" />
       </motion.div>
       <motion.div className="absolute inset-0 bg-white" initial={{ opacity: 0 }} animate={{ opacity: [0, 0, 1, 1, 0] }} transition={{ duration: 1.5, times: [0, 0.55, 0.62, 0.8, 1] }} />
     </motion.div>

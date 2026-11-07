@@ -6,7 +6,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { PROJECTS } from "@/content";
 import { useGamepad } from "./controls";
-import { CancelButton, PokeballIcon } from "./ui";
+import { CancelButton, TokenIcon } from "./ui";
 
 export default function WorkScreen({ onBack }: { onBack: () => void }) {
   const [sel, setSel] = useState(0);
@@ -50,7 +50,7 @@ export default function WorkScreen({ onBack }: { onBack: () => void }) {
             >
               <div className="relative aspect-[4/3] h-full max-h-[26cqw] min-h-[44px] shrink-0 overflow-hidden rounded-[1cqw] border-[0.5cqw] border-[#f4f2f8] bg-[#14182a] @lg:max-h-none @lg:h-auto @lg:w-[40%]">
                 <Image src={p.thumb} alt="" fill sizes="30vw" className="object-cover" />
-                <PokeballIcon size={18} className="absolute left-1 top-1" />
+                <TokenIcon size={18} className="absolute left-1 top-1" />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate leading-[1.6]">{p.title}</p>
@@ -119,7 +119,7 @@ function Detail({ i, img, setImg, onZoom, onClose }: { i: number; img: number; s
   return (
     <>
       <div className="flex items-center gap-3 border-b-4 border-[#2d4a8a] bg-[#2d4a8a] px-4 py-2 font-pixel text-[#f4f2f8]" style={{ fontSize: "clamp(9px, 2.6cqw, 22px)" }}>
-        <PokeballIcon size={18} />
+        <TokenIcon size={18} />
         <span className="truncate">{p.title}</span>
         <KindChip kind={p.kind} className="ml-auto" />
         <span className="text-[#ffd23f]">Lv.{p.year}</span>

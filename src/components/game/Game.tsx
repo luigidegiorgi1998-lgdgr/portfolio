@@ -180,7 +180,7 @@ function LabHud({ near }: { near: BallId | null }) {
         )}
       </AnimatePresence>
       <p className="pointer-events-none absolute inset-x-0 bottom-[1.5cqw] text-center font-pixel text-[#3a3a58]" style={{ fontSize: "clamp(7px, 1.9cqw, 16px)" }}>
-        Walk up to the table with the 3 Poké Balls
+        Walk up to the table with the 3 tokens
       </p>
     </>
   );

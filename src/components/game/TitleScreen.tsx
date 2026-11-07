@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { PROFILE } from "@/content";
 import { useGamepad } from "./controls";
-import { PokeballIcon } from "./ui";
+import { TokenIcon } from "./ui";
 
 export default function TitleScreen({ onStart }: { onStart: () => void }) {
   useGamepad({ onA: onStart });
@@ -15,7 +15,7 @@ export default function TitleScreen({ onStart }: { onStart: () => void }) {
     >
       <div className="pointer-events-none absolute inset-0 opacity-30" style={{ background: "repeating-linear-gradient(135deg,#1b2455 0 12px,#0e1430 12px 24px)" }} />
       <motion.div initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: "spring", stiffness: 120, damping: 12 }}>
-        <PokeballIcon size={64} />
+        <TokenIcon size={64} />
       </motion.div>
       <motion.h1
         className="relative px-4 leading-[1.5] text-[#ffd23f]"

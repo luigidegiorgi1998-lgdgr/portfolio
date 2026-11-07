@@ -9,12 +9,12 @@ export const PROFILE = {
   portrait: "/images/about/luigi-portrait.png",
 };
 
-// Pokédex message (one "page" per text box)
+// Intro message (one "page" per text box)
 export const POKEDEX_PAGES = [
-  "New message received on the POKéDEX!",
+  "New message received!",
   "Hi! I'm LUIGI DE GIORGI, a product designer. 8 years ago I was fixing cars. Last year I was making coffee in Toronto.",
   "Today I design digital products: apps, brands and dashboards. I taught myself design and front-end by building real things.",
-  "The lab has 3 POKé BALLS: my WORK, my STORY and my CONTACT. Pick one!",
+  "The lab has 3 TOKENS: my WORK, my STORY and my CONTACT. Pick one!",
 ];
 
 export type Project = {
@@ -230,16 +230,16 @@ export const BAG_ITEMS = [
   {
     id: "cv",
     label: "CV (PDF)",
-    desc: "Download my CV as a PDF: a TM you can use right away.",
+    desc: "Download my CV as a PDF: ready to use right away.",
   },
 ] as const;
 
 export const NPC_LINES = {
   prof: [
     "Prof: Welcome to my lab!",
-    "Prof: There are 3 POKé BALLS on the table. Stand in front of one and press A!",
+    "Prof: There are 3 TOKENS on the table. Stand in front of one and press A!",
   ],
   rival: ["Rival: I already chose. Actually, I looked at all three!"],
-  assistant: ["Assistant: The fastest portfolio in Kanto... and beyond."],
+  assistant: ["Assistant: The fastest portfolio in town... and beyond."],
   machine: ["A mysterious machine. Better not touch it."],
 };
